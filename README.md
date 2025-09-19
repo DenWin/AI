@@ -5,29 +5,25 @@ A collection of structured prompts and policy definitions designed for use withi
 ## Repository Structure
 
 ```
-├── README.md              # Project documentation
-├── aliases.yml            # Global aliases configuration
-├── .gitignore            # Git ignore rules for md/yml files
-├── prompts/              # Prompt templates and definitions
-│   ├── analyze.md        # Analysis prompts
-│   └── template.md       # Reusable prompt template
-└── policies/             # Policy definitions and guidelines
-    ├── common/           # Common policies across all environments
-    │   ├── README.md     # Human-friendly policy explanations
-    │   ├── docs/         # Detailed examples and documentation  
-    │   └── base.yml      # Base policy configuration
-    └── languages/        # Language-specific policies
-        └── java/         # Java development policies
-            ├── README.md        # Human-friendly Java policy explanations
-            ├── docs/            # Detailed examples and documentation
-            ├── java-style.yml   # Coding style policies
-            ├── java-security.yml # Security policies
-            ├── java-testing.yml # Testing policies
-            ├── java-performance.yml # Performance policies
-            └── ...              # Additional Java-specific policies
-        └── python/          # Python development policies (future)
-        └── typescript/      # TypeScript development policies (future)
-        └── ...              # Additional language-specific policies
+├── README.md                         # Project documentation
+├── aliases.yml                       # Global aliases configuration
+├── .gitignore                       # Git ignore rules for md/yml files
+├── prompts/                         # Prompt templates and definitions
+│   ├── analyze.md                   # Analysis prompts
+│   └── template.md                  # Reusable prompt template
+└── policies/                        # Policy definitions and guidelines
+    ├── common/                      # Common policies across all environments
+    │   ├── README.md                # Human-friendly policy explanations
+    │   ├── docs/                    # Detailed examples and documentation  
+    │   └── base.yml                 # Base policy configuration
+    └── languages/                   # Language-specific policies
+        └── java/                    # Java development policies
+        |   ├── README.md            # Human-friendly Java policy explanations
+        |   ├── docs/                # Detailed examples and documentation
+        |   ├── java-style.yml       # Coding style policies
+        |   ├── java-security.yml    # Security policies
+        |   └── ...                  # Additional Java-specific policies
+        └── ...                      # Additional language-specific policies
 ```
 
 ## Getting Started
