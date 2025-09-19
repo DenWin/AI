@@ -1,0 +1,23 @@
+# Common Testing Policies
+# Keep rules token friendly, concise but precise and use RFC-2119 keywords.
+
+policies:
+  BASE-TEST-001:
+    title: "Test Coverage"
+    rule: "Critical business logic **MUST** have automated tests and **SHOULD** achieve minimum 80% code coverage."
+    
+  BASE-TEST-002:
+    title: "Test Independence" 
+    rule: "Tests **MUST** be independent of each other and **MUST NOT** rely on execution order or shared state."
+    
+  BASE-TEST-003:
+    title: "Test Naming"
+    rule: "Test names **SHOULD** clearly describe the scenario being tested and expected outcome."
+    
+  BASE-TEST-004:
+    title: "Test Data Management"
+    rule: "Tests **MUST** clean up test data after execution and **SHOULD** use isolated test environments."
+    
+  BASE-TEST-005:
+    title: "Integration Testing"
+    rule: "External dependencies **SHOULD** be mocked in unit tests and **MUST** be tested in integration tests."

@@ -1,0 +1,23 @@
+# Common Style Policies
+# Keep rules token friendly, concise but precise and use RFC-2119 keywords.
+
+policies:
+  BASE-STYLE-001:
+    title: "Naming Conventions"
+    rule: "Identifiers **MUST** use meaningful names and **SHOULD** follow language-specific naming conventions."
+    
+  BASE-STYLE-002:
+    title: "Code Formatting"
+    rule: "Code **MUST** follow consistent formatting rules and **SHOULD** use automated formatting tools."
+    
+  BASE-STYLE-003:
+    title: "Code Comments"
+    rule: "Complex logic **SHOULD** include explanatory comments and **MUST NOT** include obvious or redundant comments."
+    
+  BASE-STYLE-004:
+    title: "Function Length"
+    rule: "Functions **SHOULD** be concise and focused on single responsibility and **SHOULD NOT** exceed reasonable length limits."
+    
+  BASE-STYLE-005:
+    title: "Magic Numbers"
+    rule: "Magic numbers **MUST** be replaced with named constants and **SHOULD** include explanatory comments."

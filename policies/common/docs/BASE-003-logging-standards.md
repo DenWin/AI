@@ -1,62 +1,65 @@
 ## BASE-003 - Logging Standards Examples
 
-### Good Logging Examples
+### General Logging Principles
 
-#### Structured Logging with JSON
-```java
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import net.logstash.logback.argument.StructuredArguments;
-
-public class OrderService {
-    private static final Logger logger = LoggerFactory.getLogger(OrderService.class);
-    
-    public void processOrder(Order order) {
-        logger.info("Processing order",
-            StructuredArguments.kv("orderId", order.getId()),
-            StructuredArguments.kv("customerId", order.getCustomerId()),
-            StructuredArguments.kv("amount", order.getTotal()),
-            StructuredArguments.kv("status", "processing")
-        );
-        
-        try {
-            // Process order logic
-            logger.debug("Order validation completed",
-                StructuredArguments.kv("orderId", order.getId()),
-                StructuredArguments.kv("validationTime", System.currentTimeMillis())
-            );
-        } catch (Exception e) {
-            logger.error("Order processing failed",
-                StructuredArguments.kv("orderId", order.getId()),
-                StructuredArguments.kv("error", e.getMessage()),
-                e
-            );
-        }
+#### Structured Logging Format
+```
+{
+    "timestamp": "2024-01-15T10:30:00Z",
+    "level": "INFO",
+    "message": "User authentication successful",
+    "context": {
+        "userId": "12345",
+        "action": "login",
+        "ipAddress": "192.168.1.100",
+        "userAgent": "Mozilla/5.0..."
     }
 }
 ```
 
-#### Appropriate Log Levels
-```java
-public class UserService {
-    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
-    
-    public User authenticateUser(String username, String password) {
-        logger.debug("Authentication attempt for user: {}", username);
-        
-        User user = userRepository.findByUsername(username);
-        if (user == null) {
-            logger.warn("Authentication failed - user not found: {}", username);
-            throw new AuthenticationException("Invalid credentials");
-        }
-        
-        if (!passwordEncoder.matches(password, user.getPasswordHash())) {
-            logger.warn("Authentication failed - invalid password for user: {}", username);
-            throw new AuthenticationException("Invalid credentials");
-        }
-        
-        logger.info("User successfully authenticated: {}", username);
-        return user;
-    }
-}
+#### Log Levels and Usage
+```
+ERROR: System errors, exceptions, failures
+WARN:  Potential issues, deprecated features
+INFO:  General application flow, business events
+DEBUG: Detailed diagnostic information
+
+Examples:
+ERROR: "Database connection failed"
+WARN:  "API response time exceeded threshold"
+INFO:  "User created account successfully" 
+DEBUG: "Processing user input: {data}"
+```
+
+### Language-Agnostic Logging Patterns
+
+#### Good Logging Practices
+```
+// Include relevant context
+log.info("Order processed", {orderId: "12345", amount: 99.99, userId: "user123"})
+
+// Use appropriate log levels
+log.error("Payment processing failed", {error: errorDetails, orderId: "12345"})
+log.debug("Validating input parameters", {params: inputData})
+
+// Structured format for parsing
+log.info("user_action", {
+    action: "purchase",
+    user_id: "123",
+    product_id: "456", 
+    amount: 29.99
+})
+```
+
+#### Bad Logging Examples
+```
+// Too vague
+log.info("Something happened")
+
+// Sensitive data exposed  
+log.info("User login: username=john, password=secret123")
+
+// Inconsistent format
+log.info("User 123 bought item 456 for $29.99")
+log.info("Purchase: {user: 123, item: 456, price: 29.99}")
 ```

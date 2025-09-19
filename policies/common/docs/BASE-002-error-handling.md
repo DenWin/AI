@@ -1,73 +1,62 @@
 ## BASE-002 - Error Handling Examples
 
-### Good Error Handling Examples
+### General Error Handling Principles
 
-#### Graceful Exception Handling
-```java
-public class FileProcessor {
-    public ProcessResult processFile(String filename) {
-        try {
-            File file = new File(filename);
-            if (!file.exists()) {
-                return ProcessResult.error("File not found: " + filename);
-            }
-            
-            // Process file content
-            String content = Files.readString(file.toPath());
-            return ProcessResult.success(processContent(content));
-            
-        } catch (IOException e) {
-            logger.error("Failed to read file: " + filename, e);
-            return ProcessResult.error("Unable to read file. Please check file permissions.");
-        } catch (SecurityException e) {
-            logger.error("Security error accessing file: " + filename, e);
-            return ProcessResult.error("Access denied. Contact administrator.");
+#### Graceful Error Handling Pattern
+```
+function processData(input) {
+    try {
+        // Validate input
+        if (!isValid(input)) {
+            return ErrorResult("Invalid input: " + getValidationMessage(input))
         }
+        
+        // Process data
+        result = performOperation(input)
+        return SuccessResult(result)
+        
+    } catch (ValidationError e) {
+        logError("Validation failed", e)
+        return ErrorResult("Please check your input and try again")
+    } catch (SystemError e) {
+        logError("System error occurred", e)
+        return ErrorResult("Service temporarily unavailable. Please try again later")
     }
 }
 ```
 
 #### User-Friendly Error Messages
-```java
-public class UserRegistration {
-    public RegistrationResult register(UserData userData) {
-        try {
-            validateUserData(userData);
-            User user = createUser(userData);
-            return RegistrationResult.success(user);
-        } catch (ValidationException e) {
-            // Return specific, actionable error message
-            return RegistrationResult.error(
-                "Registration failed: " + e.getMessage() + 
-                ". Please correct the highlighted fields and try again."
-            );
-        } catch (DuplicateUserException e) {
-            return RegistrationResult.error(
-                "An account with this email already exists. Please use a different email or try to log in."
-            );
-        }
+```
+Good Examples:
+- "Email address is required"
+- "Password must be at least 8 characters"
+- "File upload failed. Please try again or contact support"
+- "Connection timeout. Please check your internet connection"
+
+Bad Examples:
+- "Error 500" (no context)
+- "Something went wrong" (too vague)
+- "NullPointerException at line 42" (technical details exposed)
+- "Database constraint violation" (internal details exposed)
+```
+
+### Language-Agnostic Error Handling Practices
+
+#### Error Response Structure
+```
+{
+    "success": false,
+    "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "The provided data is invalid",
+        "details": "Email field is required"
     }
 }
 ```
 
-### Bad Error Handling Examples
-
-#### Poor Exception Handling
-```java
-// Bad: Swallowing exceptions
-try {
-    riskyOperation();
-} catch (Exception e) {
-    // Silent failure - error is lost
-}
-
-// Bad: Generic error messages
-catch (Exception e) {
-    throw new RuntimeException("Something went wrong");
-}
-
-// Bad: Exposing internal details
-catch (SQLException e) {
-    throw new RuntimeException("Database error: " + e.getMessage()); // Exposes DB structure
-}
-```
+#### Error Logging Best Practices
+- Log detailed technical errors internally
+- Provide user-friendly messages to end users
+- Include context and timestamps in logs
+- Use appropriate log levels (ERROR, WARN, INFO)
+- Never log sensitive information like passwords

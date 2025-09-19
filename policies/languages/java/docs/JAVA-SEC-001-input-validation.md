@@ -41,25 +41,25 @@ public class CreateUserRequest {
 }
 ```
 
-### SQL Injection Prevention Examples
+### Input Sanitization Examples
 
 ```java
-// Good: Using PreparedStatement
-public List<User> findUsersByRole(String role) {
-    String sql = "SELECT * FROM users WHERE role = ?";
-    try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-        stmt.setString(1, role);  // Parameterized query
-        ResultSet rs = stmt.executeQuery();
-        return mapResultsToUsers(rs);
-    }
-}
-
-// Good: Using JPA with named parameters
-@Repository
-public class UserRepository {
+public class InputSanitizer {
     
-    @Query("SELECT u FROM User u WHERE u.role = :role AND u.active = true")
-    List<User> findByRole(@Param("role") String role);
+    public String sanitizeHtmlInput(String input) {
+        if (input == null) return null;
+        
+        // Remove potentially dangerous HTML tags and scripts
+        return Jsoup.clean(input, Whitelist.basic());
+    }
+    
+    public String sanitizeFileName(String fileName) {
+        if (fileName == null) return null;
+        
+        // Remove path traversal attempts and dangerous characters
+        return fileName.replaceAll("[^a-zA-Z0-9._-]", "")
+                      .replaceAll("\\.\\.", "");
+    }
 }
 ```
 
@@ -72,10 +72,9 @@ public void createUser(String username, String email) {
     userService.save(new User(username, email));
 }
 
-// Bad: String concatenation in SQL (SQL Injection vulnerable)
-public User findUserByEmail(String email) {
-    String sql = "SELECT * FROM users WHERE email = '" + email + "'";
-    // Vulnerable to SQL injection attacks
-    return jdbcTemplate.queryForObject(sql, User.class);
+// Bad: Insufficient validation
+public void updateProfile(String bio) {
+    // No length check or content validation
+    user.setBio(bio); // Could be XSS vector
 }
 ```

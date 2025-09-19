@@ -1,0 +1,23 @@
+# Common Security Policies
+# Keep rules token friendly, concise but precise and use RFC-2119 keywords.
+
+policies:
+  BASE-SEC-001:
+    title: "Input Validation"
+    rule: "All external inputs **MUST** be validated before processing and **SHOULD** be sanitized according to expected formats."
+    
+  BASE-SEC-002:
+    title: "Authentication Requirements"
+    rule: "Systems **MUST** implement proper authentication mechanisms and **SHOULD** use multi-factor authentication for sensitive operations."
+    
+  BASE-SEC-003:
+    title: "Data Protection"
+    rule: "Sensitive data **MUST** be encrypted at rest and in transit and **MUST NOT** be logged in plain text."
+    
+  BASE-SEC-004:
+    title: "Access Control"
+    rule: "Applications **MUST** implement role-based access control and **SHOULD** follow principle of least privilege."
+    
+  BASE-SEC-005:
+    title: "Security Headers"
+    rule: "Web applications **MUST** implement appropriate security headers and **SHOULD** follow OWASP security guidelines."

@@ -7,7 +7,7 @@ These policies provide AI-friendly guidelines for Java development, covering cod
 
 ## Table of Contents
 
-**Coding Style Policies:**
+**Coding Style Policies:** ([java-style.yml](./java-style.yml))
 - [JAVA-STYLE-001 - Class Naming Convention](#java-style-001---class-naming-convention)
 - [JAVA-STYLE-002 - Method Naming Convention](#java-style-002---method-naming-convention)
 - [JAVA-STYLE-003 - Variable Naming Convention](#java-style-003---variable-naming-convention)
@@ -17,27 +17,29 @@ These policies provide AI-friendly guidelines for Java development, covering cod
 - [JAVA-STYLE-007 - Line Length Limits](#java-style-007---line-length-limits)
 - [JAVA-STYLE-008 - Brace Placement](#java-style-008---brace-placement)
 
-**Security Policies:**
+**Security Policies:** ([java-security.yml](./java-security.yml))
 - [JAVA-SEC-001 - Input Validation](#java-sec-001---input-validation)
 - [JAVA-SEC-002 - SQL Injection Prevention](#java-sec-002---sql-injection-prevention)
 - [JAVA-SEC-003 - Sensitive Data Handling](#java-sec-003---sensitive-data-handling)
 - [JAVA-SEC-004 - Exception Information Disclosure](#java-sec-004---exception-information-disclosure)
 - [JAVA-SEC-005 - Cryptographic Standards](#java-sec-005---cryptographic-standards)
 
-**Testing Policies:**
+**Testing Policies:** ([java-testing.yml](./java-testing.yml))
 - [JAVA-TEST-001 - Test Method Naming](#java-test-001---test-method-naming)
 - [JAVA-TEST-002 - Test Coverage Requirements](#java-test-002---test-coverage-requirements)
 - [JAVA-TEST-003 - Test Independence](#java-test-003---test-independence)
 - [JAVA-TEST-004 - Assertion Usage](#java-test-004---assertion-usage)
 - [JAVA-TEST-005 - Test Data Management](#java-test-005---test-data-management)
 
-**Performance Policies:**
+**Performance Policies:** ([java-performance.yml](./java-performance.yml))
 - [JAVA-PERF-001 - String Concatenation](#java-perf-001---string-concatenation)
 - [JAVA-PERF-002 - Collection Sizing](#java-perf-002---collection-sizing)
 - [JAVA-PERF-003 - Resource Management](#java-perf-003---resource-management)
 - [JAVA-PERF-004 - Object Creation](#java-perf-004---object-creation)
 
 ---
+
+## Coding Style Policies
 
 ## JAVA-STYLE-001 - Class Naming Convention
 
@@ -75,6 +77,8 @@ These policies provide AI-friendly guidelines for Java development, covering cod
 
 ---
 
+## Security Policies
+
 ## JAVA-SEC-001 - Input Validation
 
 **Rule:**
@@ -93,6 +97,8 @@ These policies provide AI-friendly guidelines for Java development, covering cod
 
 ---
 
+## Testing Policies
+
 ## JAVA-TEST-001 - Test Method Naming
 
 **Rule:**
@@ -110,6 +116,8 @@ These policies provide AI-friendly guidelines for Java development, covering cod
 [↑ Back to top](#top)
 
 ---
+
+## Performance Policies
 
 ## JAVA-PERF-001 - String Concatenation
 
