@@ -1,0 +1,95 @@
+# AI Repository .gitignore
+# This repository contains markdown files and YAML configuration files
+
+# ===== Operating System Files =====
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+
+# ===== Editor/IDE Files =====
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# ===== Temporary Files =====
+# General temporary files
+*.tmp
+*.temp
+.tmp/
+.temp/
+
+# Backup files
+*.bak
+*.backup
+*.orig
+
+# ===== Build/Output Directories =====
+# Common build directories
+build/
+dist/
+out/
+target/
+
+# ===== Documentation Generation =====
+# Generated documentation
+docs/_build/
+docs/.doctrees/
+site/
+
+# ===== Environment & Configuration =====
+# Environment files (if any secrets are added later)
+.env
+.env.local
+.env.*.local
+
+# Configuration override files
+config.local.yml
+config.override.yml
+*-local.yml
+*-override.yml
+
+# ===== Logs =====
+*.log
+logs/
+
+# ===== Cache Directories =====
+.cache/
+node_modules/ # in case any tooling is added later
