@@ -1,8 +1,8 @@
 # Common Policies Index
 # This file provides an index of all common policy files for AI systems like ChatGPT
-# Format: filename;last_updated;description
+# Format: last_updated;URL
 
-base.yml;2024-01-15;Base foundational policies for all development
-security.yml;2024-01-15;Security policies for data protection and secure coding
-testing.yml;2024-01-15;Testing policies for quality assurance and coverage
-style.yml;2024-01-15;Style policies for code formatting and consistency
+2024-01-15;https://raw.githubusercontent.com/DenWin/AI/main/policies/common/base.yml
+2024-01-15;https://raw.githubusercontent.com/DenWin/AI/main/policies/common/security.yml
+2024-01-15;https://raw.githubusercontent.com/DenWin/AI/main/policies/common/testing.yml
+2024-01-15;https://raw.githubusercontent.com/DenWin/AI/main/policies/common/style.yml

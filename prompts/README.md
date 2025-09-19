@@ -2,137 +2,93 @@
 
 This directory contains reusable AI prompts for various tasks related to code analysis, documentation evaluation, and policy compliance checking.
 
+## How Prompts Work
+
+The prompts in this directory are designed to be self-explanatory and work with various AI systems. Each prompt provides:
+
+1. **Clear Instructions**: Step-by-step guidance for the AI system
+2. **Input Specifications**: What type of content to analyze
+3. **Output Format**: How results should be structured
+4. **Usage Examples**: Practical applications and scenarios
+
 ## Available Prompts
 
-### 🔍 Policy Analysis
-**File:** [use-policies.md](./use-policies.md)  
-**Alias:** `/use-policy for [Language]`  
+### 🔍 Policy Compliance Analysis
+**File:** [apply-policy.md](./apply-policy.md)  
+**Aliases:** `/apply-policy`, `/use-policy`  
 **Purpose:** Comprehensive policy compliance analysis for code
 
-**Features:**
-- Loads language-specific and common policies automatically
-- Policy-by-policy evaluation with detailed reporting
-- Line-specific violation identification
-- Git-style conflict markers for suggested fixes
-- Compliance scoring and priority recommendations
+The prompt automatically:
+- Loads language-specific and common policies using index files
+- Performs policy-by-policy evaluation with detailed reporting
+- Identifies line-specific violations
+- Provides Git-style conflict markers for suggested fixes
+- Generates compliance scoring and priority recommendations
 
-**Usage Examples:**
-- `/use-policy for Java` - Analyze Java code against all Java policies
-- `/use-policy for Python` - Analyze Python code (when policies exist)
+### 📝 Content Quality Analysis
+**File:** [evaluate-content.md](./evaluate-content.md)  
+**Aliases:** `/evaluate-text`, `/evaluate-doc`  
+**Purpose:** Unified analysis for text and document quality
 
-### 📝 Text Analysis
-**File:** [evaluate-text.md](./evaluate-text.md)  
-**Alias:** `/evaluate-text`  
-**Purpose:** Comprehensive text analysis for quality and clarity
+The prompt analyzes:
+- Redundancy and unnecessary repetition
+- Content and structural consistency
+- Completeness and missing elements
+- Clarity and comprehension issues
+- Professional standards compliance
 
-**Analysis Dimensions:**
-- Redundancy detection
-- Consistency checking (content and structure)
-- Completeness assessment
-- Clarity evaluation
-- Actionable improvement suggestions
-
-**Usage Modes:**
-- `/evaluate-text` - Full comprehensive analysis
-- `/evaluate-text --focus=clarity` - Clarity-focused analysis
-- `/evaluate-text --focus=structure` - Structure-focused analysis
-
-### 📄 Document Analysis  
-**File:** [evaluate-doc.md](./evaluate-doc.md)  
-**Alias:** `/evaluate-doc`  
-**Purpose:** Specialized analysis for structured documents and formal documentation
-
-**Enhanced Features:**
-- Document structure and organization analysis
-- Navigation and cross-reference validation
-- Professional standards compliance checking
-- Documentation-specific quality metrics
-- Implementation roadmap with prioritized improvements
-
-**Specialized Modes:**
-- `/evaluate-doc --policy` - Policy document standards
-- `/evaluate-doc --technical` - Technical documentation review
-- `/evaluate-doc --api` - API documentation analysis
-- `/evaluate-doc --user` - User guide evaluation
-
-### 📋 Template Prompt
+### 📋 Prompt Template
 **File:** [template.md](./template.md)  
-**Purpose:** Comprehensive template for creating structured, reusable AI prompts
+**Purpose:** Template for creating new structured AI prompts
 
-## Usage Guidelines
+## Alias System
 
-### 1. Accessing Prompts
-Reference prompts using the alias system defined in [aliases.yml](../aliases.yml):
+Prompts are accessible through aliases defined in [aliases.yml](../aliases.yml):
 ```yaml
 aliases:
-  use-policies: prompts/use-policies.md
-  evaluate-text: prompts/evaluate-text.md
-  evaluate-doc: prompts/evaluate-doc.md
+  apply-policy: prompts/apply-policy.md
+  use-policy: prompts/apply-policy.md  # Alternative name
+  evaluate-text: prompts/evaluate-content.md
+  evaluate-doc: prompts/evaluate-content.md
 ```
 
-### 2. Integration with AI Systems
-These prompts are designed to work with:
+## AI System Integration
+
+These prompts work with:
 - ChatGPT and GPT-based systems
 - Claude and Anthropic AI systems  
 - Custom AI implementations
 - AI development environments
 
-### 3. Customization
-Each prompt can be customized for specific:
-- Organizational standards
-- Industry requirements
-- Language-specific needs
-- Project-specific criteria
+## Quality Gate
 
-## Quality Checklist
+> Evaluate with each adjustment
 
 **Content Verification**
-- [ ] All prompts have clear purpose and usage instructions
-- [ ] Examples are provided for complex prompts
-- [ ] Output formats are clearly defined
-- [ ] Error handling scenarios are covered
-- [ ] Prompts are tested with target AI systems
+- [x] All prompts have clear purpose and usage instructions
+- [x] Examples are provided for complex prompts
+- [x] Output formats are clearly defined
+- [x] Error handling scenarios are covered
+- [x] Prompts are tested with target AI systems
 
 **Structure Verification**
-- [ ] Consistent formatting across all prompts
-- [ ] Clear section headers and organization
-- [ ] Proper markdown formatting
-- [ ] Logical flow from instruction to output
-- [ ] Complete usage documentation
+- [x] Consistent formatting across all prompts
+- [x] Clear section headers and organization
+- [x] Proper markdown formatting
+- [x] Logical flow from instruction to output
+- [x] Complete usage documentation
 
 **Integration Verification**
-- [ ] All prompts are referenced in aliases.yml
-- [ ] File paths in aliases are correct
-- [ ] Prompts work with intended AI systems
-- [ ] Cross-references to policies/templates are accurate
-- [ ] Examples match repository structure
+- [x] All prompts are referenced in aliases.yml
+- [x] File paths in aliases are correct
+- [x] Prompts work with intended AI systems
+- [x] Cross-references to policies/templates are accurate
+- [x] Examples match repository structure
 
-**Maintenance Verification**
-- [ ] Prompts are updated when policies change
-- [ ] References to repository structure are current
-- [ ] Examples use current file naming conventions
-- [ ] Documentation reflects current capabilities
-- [ ] Version compatibility is maintained
-
-## Prompt Development Guidelines
-
-### Creating New Prompts
-1. **Define Clear Purpose**: Specify exact use case and expected outcomes
-2. **Structure Instructions**: Use clear sections and step-by-step guidance
-3. **Provide Examples**: Include input/output examples for complex prompts
-4. **Test Thoroughly**: Verify with multiple AI systems and scenarios
-5. **Document Usage**: Include clear usage instructions and limitations
-
-### Best Practices
-- Use clear, unambiguous language
-- Provide specific output format requirements
-- Include error handling instructions
-- Consider edge cases and variations
-- Make prompts modular and reusable
-
-### Maintenance
-- Review prompts when policies change
-- Update examples to reflect current repository structure
-- Test prompts periodically with AI systems
-- Gather feedback and iterate improvements
-- Keep documentation current and accurate
+**Alias-File Consistency**
+- [x] All aliases point to existing files
+- [x] All prompt files are present in aliases (README exempt)
+- [x] Multiple aliases can point to same file (evaluate-text/doc → evaluate-content.md)
+- [x] No orphaned prompt files without aliases
+- [x] Alias names match intended functionality
+- [x] File paths in aliases.yml are correct

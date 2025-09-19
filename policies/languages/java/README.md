@@ -566,6 +566,16 @@ These policies are designed to be concise and precise for AI consumption, while 
 - [x] HTML anchor at top of document is present
 - [x] Document follows the established template format
 
+### Policy Index File (all_java.yml)
+- [x] all_java.yml file exists
+- [x] Lists all policies in java directory
+- [x] No dead links in index file
+- [x] Format follows "last_updated;URL" specification
+- [x] URLs point to correct policy files
+- [x] All Java policy files are included in index
+- [x] HTML anchor at top of document is present
+- [x] Document follows the established template format
+
 ### Policy File Integration
 - [x] All referenced policy files exist and are accessible
 - [x] Policy file links in TOC are correct and functional
