@@ -40,44 +40,18 @@ This directory contains templates for creating new policies, documentation, and 
 
 ## Creating New Policies
 
-### Step 1: Create Policy Directory
+### Template Copying
 ```bash
-mkdir -p policies/[category]/[subcategory]/docs
+cp policy-template.yml ../[category]/new-policy.yml
+cp README-template.md ../[category]/README.md  
+cp -r docs/ ../[category]/
 ```
 
-### Step 2: Copy and Customize Policy File
-1. Copy `policy-template.yml` to your new directory
-2. Rename to descriptive name (e.g., `security.yml`, `java-style.yml`)
-3. Replace all placeholders with actual content:
-   - [Category] with the policy category (e.g., "Java Security", "Common Testing")
-   - [PREFIX] with appropriate prefix (e.g., JAVA-SEC, BASE-TEST, PYTHON-STYLE)
-   - [Descriptive Rule Title] with clear, concise rule titles
-   - [Rule statement...] with specific, actionable rules using RFC-2119 keywords
-4. Add more policies as needed following the same pattern
-5. Ensure all rules are token-friendly, concise, and precise
-6. Use **bold** formatting for RFC-2119 keywords (MUST, SHOULD, etc.)
-
-### Step 3: Create README
-1. Copy `README-template.md` to your policy directory
-2. Replace all placeholders in brackets with actual content:
-   - [Category] - Policy category (e.g., "Java Security", "Common Testing")
-   - [PREFIX] - Rule prefix (e.g., JAVA-SEC, BASE-TEST)
-   - [Rule Title] - Descriptive rule titles
-   - [rule-title-lowercase] - Lowercase with hyphens for anchor links
-   - [Policy File Name] - Name of the policy file
-   - [Policy Category Name] - Section header for the category
-3. Follow structure guidelines:
-   - Use heading 3 (###) for policy category sections
-   - Use heading 4 (####) for individual rules
-   - Bold text for file references in TOC
-   - Always include "Back to top" links after each rule
-4. Ensure all links and anchors work correctly
-5. Complete the quality checklist at the end
-
-### Step 4: Add Examples (If Needed)
-1. Copy `docs/example-template.md` for complex rules
-2. Create one file per rule that needs detailed examples
-3. Use naming convention: `[PREFIX]-[NUMBER]-[title].md`
+### Customization Steps
+1. Replace all `[placeholders]` with actual content
+2. Use RFC-2119 keywords (**MUST**, **SHOULD**)
+3. Follow naming conventions (PREFIX-NUMBER format)
+4. Complete quality checklist
 4. Only create when README guidance isn't sufficient
 
 ## Template Guidelines

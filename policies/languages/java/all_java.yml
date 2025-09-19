@@ -1,0 +1,8 @@
+# Java Policies Index
+# This file provides an index of all Java policy files for AI systems like ChatGPT
+# Format: filename;last_updated;description
+
+java-style.yml;2024-01-15;Java coding style and formatting policies
+java-security.yml;2024-01-15;Java security and vulnerability prevention policies
+java-testing.yml;2024-01-15;Java testing and quality assurance policies
+java-performance.yml;2024-01-15;Java performance optimization policies

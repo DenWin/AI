@@ -1,4 +1,4 @@
 aliases:
-  use-policies: prompts/use-policies.md
-  evaluate-text: prompts/evaluate-text.md
-  evaluate-doc: prompts/evaluate-doc.md
+  apply-policy: prompts/apply-policy.md
+  evaluate-text: prompts/evaluate-content.md
+  evaluate-doc: prompts/evaluate-content.md

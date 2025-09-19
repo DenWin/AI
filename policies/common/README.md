@@ -1,312 +1,534 @@
 <a id="top"></a>
-# Common Development Policies
 
-## Quick Description
+# Common Policies
 
-These policies provide foundational AI-friendly guidelines that apply across all programming languages and environments. The policies are designed to be concise and precise for AI consumption, while this README will provide the rationale behind each policy. If further details are required additional examples can be found in the [docs folder](./docs/).
+These policies are designed to be concise and precise for AI consumption, while this README will provide the rationale behind each policy. If further details are required additional examples can be found in the [docs folder](./docs/).
 
 ## Policies
 
 **Table of Contents**
-
-**Base Policies** ([base.yml](./base.yml))
-- [BASE-001 - Code Documentation](#base-001---code-documentation)
-- [BASE-002 - Error Handling](#base-002---error-handling)
-- [BASE-003 - Logging Standards](#base-003---logging-standards)
-- [BASE-004 - Version Control](#base-004---version-control)
-- [BASE-005 - Configuration Management](#base-005---configuration-management)
-
-**Security Policies** ([security.yml](./security.yml))
-- [BASE-SEC-001 - Input Validation](#base-sec-001---input-validation)
-- [BASE-SEC-002 - Authentication Requirements](#base-sec-002---authentication-requirements)
-- [BASE-SEC-003 - Data Protection](#base-sec-003---data-protection)
-- [BASE-SEC-004 - Access Control](#base-sec-004---access-control)
-- [BASE-SEC-005 - Security Headers](#base-sec-005---security-headers)
-
-**Testing Policies** ([testing.yml](./testing.yml))
-- [BASE-TEST-001 - Test Coverage](#base-test-001---test-coverage)
-- [BASE-TEST-002 - Test Independence](#base-test-002---test-independence)
-- [BASE-TEST-003 - Test Naming](#base-test-003---test-naming)
-- [BASE-TEST-004 - Test Data Management](#base-test-004---test-data-management)
-- [BASE-TEST-005 - Integration Testing](#base-test-005---integration-testing)
-
-**Style Policies** ([style.yml](./style.yml))
-- [BASE-STYLE-001 - Naming Conventions](#base-style-001---naming-conventions)
-- [BASE-STYLE-002 - Code Formatting](#base-style-002---code-formatting)
-- [BASE-STYLE-003 - Code Comments](#base-style-003---code-comments)
-- [BASE-STYLE-004 - Function Length](#base-style-004---function-length)
-- [BASE-STYLE-005 - Magic Numbers](#base-style-005---magic-numbers)
-
----
+- **Base Policies** ([base.yml](./base.yml))
+  - [BASE-001 - Code Documentation](#base-001---code-documentation)
+  - [BASE-002 - Error Handling](#base-002---error-handling)
+  - [BASE-003 - Logging Standards](#base-003---logging-standards)
+  - [BASE-004 - Version Control](#base-004---version-control)
+  - [BASE-005 - Configuration Management](#base-005---configuration-management)
+- **Security Policies** ([security.yml](./security.yml))
+  - [BASE-SEC-001 - Authentication](#base-sec-001---authentication)
+  - [BASE-SEC-002 - Authorization](#base-sec-002---authorization)
+  - [BASE-SEC-003 - Data Protection](#base-sec-003---data-protection)
+  - [BASE-SEC-004 - Secure Communication](#base-sec-004---secure-communication)
+  - [BASE-SEC-005 - Input Validation](#base-sec-005---input-validation)
+- **Testing Policies** ([testing.yml](./testing.yml))
+  - [BASE-TEST-001 - Test Coverage](#base-test-001---test-coverage)
+  - [BASE-TEST-002 - Test Independence](#base-test-002---test-independence)
+  - [BASE-TEST-003 - Test Naming](#base-test-003---test-naming)
+  - [BASE-TEST-004 - Assertions](#base-test-004---assertions)
+  - [BASE-TEST-005 - Performance Testing](#base-test-005---performance-testing)
+- **Style Policies** ([style.yml](./style.yml))
+  - [BASE-STYLE-001 - Naming Conventions](#base-style-001---naming-conventions)
+  - [BASE-STYLE-002 - Code Formatting](#base-style-002---code-formatting)
+  - [BASE-STYLE-003 - Documentation](#base-style-003---documentation)
+  - [BASE-STYLE-004 - Complexity](#base-style-004---complexity)
+  - [BASE-STYLE-005 - Consistency](#base-style-005---consistency)
 
 ### Base Policies
 
 #### BASE-001 - Code Documentation
 
-**Rule:**
-- Public APIs **MUST** be documented and **SHOULD** include usage examples.
+*Rule:*
+- All public interfaces, modules, and functions **MUST** include comprehensive documentation
 
-**Rationale:**
-- Documentation serves as a contract between code and its users
-- Clear documentation reduces development time and prevents misunderstandings
-- Examples help developers understand correct implementation patterns
-- Well-documented APIs are more maintainable and have higher adoption rates
+*Rationale:*
+- Ensures code maintainability and knowledge transfer
+- Reduces onboarding time for new team members
+- Facilitates code reviews and debugging processes
 
-**Best Practices:**
-- Include purpose and behavior description
-- Document all parameters with types and constraints  
-- Specify return values and possible outcomes
-- List exceptions or error conditions
-- Provide usage examples
-- Keep descriptions concise but complete
+*Best Practices:*
+- Include purpose, parameters, return values, and side effects
+- Use standard documentation formats for the language
+- Keep documentation up-to-date with code changes
+- Include usage examples for complex interfaces
 
-**Common Pitfalls:**
-- Missing parameter descriptions
-- Vague or unclear purpose statements
-- No examples or usage guidance
-- Outdated information that doesn't match implementation
+*Common Pitfalls:*
+- Outdated documentation that doesn't match implementation
+- Missing parameter or return value descriptions
+- Overly verbose documentation for simple functions
 
-[↑ Back to top](#top)
-
----
+[Back to top](#top)
 
 #### BASE-002 - Error Handling
 
-**Rule:**
-- Errors **MUST** be handled gracefully and **SHOULD** provide meaningful feedback.
+*Rule:*
+- All error conditions **MUST** be properly handled and logged with appropriate context
 
-**Rationale:**
-- Graceful error handling prevents application crashes and improves user experience
-- Meaningful error messages help users and developers understand and resolve issues
-- Proper error handling makes applications more robust and maintainable
-- Good error handling reduces support burden and debugging time
+*Rationale:*
+- Prevents system crashes and data corruption
+- Enables effective debugging and monitoring
+- Improves user experience with meaningful error messages
 
-**Best Practices:**
-- Use try-catch blocks or equivalent error handling mechanisms
-- Validate input before processing
-- Provide specific, actionable error messages
-- Log detailed technical errors internally
-- Show user-friendly messages to end users
-- Include context and timestamps in logs
-- Use appropriate log levels (ERROR, WARN, INFO)
+*Best Practices:*
+- Use specific exception types rather than generic ones
+- Include relevant context in error messages
+- Implement graceful degradation where possible
+- Log errors at appropriate levels with sufficient detail
 
-**Common Pitfalls:**
-- Silent failures that hide errors
-- Generic error messages without context
-- Exposing technical details to end users
-- Missing error handling for edge cases
+*Common Pitfalls:*
+- Swallowing exceptions without proper handling
+- Exposing sensitive information in error messages
+- Inconsistent error handling patterns across the codebase
 
-[↑ Back to top](#top)
-
----
+[Back to top](#top)
 
 #### BASE-003 - Logging Standards
 
-**Rule:**
-- Applications **MUST** implement structured logging and **SHOULD** use appropriate log levels.
+*Rule:*
+- All applications **MUST** implement structured logging with appropriate levels
 
-**Rationale:**
-- Structured logging enables better log parsing and analysis
-- Appropriate log levels help filter and categorize log messages by importance
-- Good logging practices are essential for debugging and monitoring
-- Structured logs integrate better with log analysis tools and systems
+*Rationale:*
+- Enables effective monitoring and debugging
+- Facilitates log analysis and alerting
+- Supports compliance and audit requirements
 
-**Log Levels and Usage:**
-- ERROR: System errors, exceptions, failures
-- WARN: Potential issues, deprecated features
-- INFO: General application flow, business events  
-- DEBUG: Detailed diagnostic information
+*Best Practices:*
+- Use structured logging formats (JSON, key-value pairs)
+- Include correlation IDs for request tracing
+- Log at entry and exit points of critical operations
+- Use appropriate log levels (DEBUG, INFO, WARN, ERROR, FATAL)
+- Include relevant context and metadata
 
-**Best Practices:**
-- Use structured format (JSON, key-value pairs) for better parsing
-- Include relevant context (user ID, transaction ID, timestamps)
-- Use appropriate log levels consistently
-- Avoid logging sensitive information like passwords
-- Include error details and stack traces for debugging
-- Make log messages searchable and filterable
+*Common Pitfalls:*
+- Logging sensitive information (passwords, tokens, personal data)
+- Inconsistent log levels across components
+- Missing correlation identifiers for distributed systems
 
-**Common Pitfalls:**
-- Too vague or generic log messages
-- Inconsistent formatting across the application
-- Logging sensitive data in plain text
-- Missing context information
-- Using wrong log levels
-
-[↑ Back to top](#top)
-
----
+[Back to top](#top)
 
 #### BASE-004 - Version Control
 
-**Rule:**
-- Commit messages **MUST** be descriptive and **SHOULD** follow conventional commit format.
+*Rule:*
+- All code changes **MUST** be committed with descriptive messages and proper branching
 
-**Rationale:**
-- Descriptive commit messages improve code history readability
-- Conventional commit format enables automated changelog generation
-- Clear commit messages help team collaboration and code reviews
-- Good commit practices make it easier to track changes and debug issues
+*Rationale:*
+- Maintains project history and enables rollback capabilities
+- Facilitates code review and collaboration
+- Supports release management and deployment processes
 
-**Best Practices:**
-- Use conventional commit format (feat:, fix:, docs:, etc.)
-- Include both "what" and "why" in commit messages
-- Keep first line under 50 characters
-- Use imperative mood ("Add feature" not "Added feature")
-- Reference issues or tickets when applicable
+*Best Practices:*
+- Write clear, concise commit messages describing the change
+- Use feature branches for new development
+- Include issue references in commit messages
+- Keep commits atomic and focused on single changes
 
-[↑ Back to top](#top)
+*Common Pitfalls:*
+- Vague or meaningless commit messages
+- Large commits mixing multiple unrelated changes
+- Committing sensitive information or credentials
 
----
+[Back to top](#top)
 
 #### BASE-005 - Configuration Management
 
-**Rule:**
-- Configuration **MUST** be externalized and **SHOULD** support multiple environments.
+*Rule:*
+- All configuration **MUST** be externalized and environment-specific settings managed securely
 
-**Rationale:**
-- Externalized configuration enables deployment flexibility without code changes
-- Multi-environment support is essential for proper development workflows
-- Configuration separation improves security by keeping secrets out of code
-- External configuration makes applications more portable and scalable
+*Rationale:*
+- Enables deployment across different environments
+- Separates configuration from code for security
+- Facilitates configuration management and auditing
 
-**Best Practices:**
+*Best Practices:*
 - Use environment variables or configuration files
-- Support multiple environments (dev, test, prod)
-- Keep sensitive data separate from application code
-- Validate configuration on startup
-- Provide sensible defaults where possible
+- Separate configuration by environment (dev, staging, prod)
+- Validate configuration at application startup
+- Document all configuration options and their effects
 
-[↑ Back to top](#top)
+*Common Pitfalls:*
+- Hardcoding configuration values in source code
+- Exposing sensitive configuration in version control
+- Missing validation for required configuration parameters
 
----
+[Back to top](#top)
 
 ### Security Policies
 
-#### BASE-SEC-001 - Input Validation
+#### BASE-SEC-001 - Authentication
 
-**Rule:**
-- All external inputs **MUST** be validated before processing and **SHOULD** be sanitized according to expected formats.
+*Rule:*
+- All systems **MUST** implement strong authentication mechanisms with multi-factor support
 
-**Rationale:**
-- Input validation prevents injection attacks and data corruption
-- Proper validation reduces security vulnerabilities
-- Sanitization ensures data conforms to expected formats
-- Early validation provides better error handling and user feedback
+*Rationale:*
+- Protects against unauthorized access and identity theft
+- Meets compliance requirements and security standards
+- Reduces risk of account compromise and data breaches
 
-**Best Practices:**
-- Validate all user inputs at entry points
-- Use whitelist validation when possible
-- Sanitize data according to expected formats
-- Implement length and format checks
-- Use parameterized queries for database operations
-
-[↑ Back to top](#top)
-
----
-
-#### BASE-SEC-002 - Authentication Requirements
-
-**Rule:**
-- Systems **MUST** implement proper authentication mechanisms and **SHOULD** use multi-factor authentication for sensitive operations.
-
-**Rationale:**
-- Proper authentication prevents unauthorized access
-- Multi-factor authentication adds additional security layers
-- Authentication mechanisms should be industry-standard and proven
-- Sensitive operations require stronger authentication controls
-
-**Best Practices:**
-- Use strong password policies
+*Best Practices:*
+- Implement strong password policies
+- Support multi-factor authentication
+- Use secure session management
 - Implement account lockout mechanisms
-- Use industry-standard authentication protocols
-- Enable multi-factor authentication for sensitive operations
-- Regularly review and update authentication mechanisms
 
-[↑ Back to top](#top)
+*Common Pitfalls:*
+- Weak password requirements
+- Storing passwords in plain text
+- Missing session timeout controls
 
----
+[Back to top](#top)
+
+#### BASE-SEC-002 - Authorization
+
+*Rule:*
+- All access to resources **MUST** be properly authorized based on user roles and permissions
+
+*Rationale:*
+- Implements principle of least privilege
+- Prevents unauthorized data access and modification
+- Supports compliance with data protection regulations
+
+*Best Practices:*
+- Implement role-based access control (RBAC)
+- Validate permissions at every access point
+- Use centralized authorization services
+- Regularly audit and review access permissions
+
+*Common Pitfalls:*
+- Missing authorization checks on sensitive operations
+- Overly broad permissions granted to users
+- Inconsistent authorization implementation across components
+
+[Back to top](#top)
+
+#### BASE-SEC-003 - Data Protection
+
+*Rule:*
+- All sensitive data **MUST** be encrypted in transit and at rest
+
+*Rationale:*
+- Protects confidential information from unauthorized access
+- Meets regulatory compliance requirements
+- Reduces impact of security breaches
+
+*Best Practices:*
+- Use strong encryption algorithms (AES-256)
+- Implement proper key management
+- Encrypt all network communications (TLS)
+- Classify data based on sensitivity levels
+
+*Common Pitfalls:*
+- Using weak or deprecated encryption algorithms
+- Poor key management practices
+- Storing encryption keys with encrypted data
+
+[Back to top](#top)
+
+#### BASE-SEC-004 - Secure Communication
+
+*Rule:*
+- All network communications **MUST** use encrypted protocols and certificate validation
+
+*Rationale:*
+- Prevents man-in-the-middle attacks and eavesdropping
+- Ensures data integrity during transmission
+- Maintains confidentiality of sensitive communications
+
+*Best Practices:*
+- Use TLS 1.2 or higher for all communications
+- Validate SSL/TLS certificates properly
+- Implement certificate pinning where appropriate
+- Use secure protocols for all services (HTTPS, SFTP, etc.)
+
+*Common Pitfalls:*
+- Disabling certificate validation in development/testing
+- Using deprecated SSL/TLS versions
+- Missing hostname verification in certificate validation
+
+[Back to top](#top)
+
+#### BASE-SEC-005 - Input Validation
+
+*Rule:*
+- All user input **MUST** be validated and sanitized before processing
+
+*Rationale:*
+- Prevents injection attacks and data corruption
+- Ensures data quality and system stability
+- Protects against malicious input and edge cases
+
+*Best Practices:*
+- Validate input at system boundaries
+- Use whitelist validation rather than blacklist
+- Sanitize input for the specific context of use
+- Implement proper error handling for invalid input
+
+*Common Pitfalls:*
+- Trusting client-side validation only
+- Incomplete sanitization leading to injection vulnerabilities
+- Missing validation on internal system inputs
+
+[Back to top](#top)
 
 ### Testing Policies
 
 #### BASE-TEST-001 - Test Coverage
 
-**Rule:**
-- Critical business logic **MUST** have automated tests and **SHOULD** achieve minimum 80% code coverage.
+*Rule:*
+- All code **MUST** achieve minimum test coverage thresholds with meaningful tests
 
-**Rationale:**
-- Automated tests prevent regressions and improve code quality
-- High test coverage ensures most code paths are validated
-- Critical business logic requires thorough testing to prevent failures
-- Test coverage metrics help identify untested areas
+*Rationale:*
+- Ensures code quality and reduces bugs
+- Facilitates safe refactoring and changes
+- Provides confidence in system behavior
 
-**Best Practices:**
-- Write tests for all critical business logic
-- Aim for at least 80% code coverage
-- Use unit, integration, and end-to-end tests appropriately
-- Maintain tests as code evolves
-- Run tests automatically in CI/CD pipelines
+*Best Practices:*
+- Aim for 80% or higher code coverage
+- Focus on critical business logic and edge cases
+- Include integration and end-to-end tests
+- Regularly review and update test coverage metrics
 
-[↑ Back to top](#top)
+*Common Pitfalls:*
+- Pursuing coverage metrics without meaningful tests
+- Missing tests for error conditions and edge cases
+- Over-reliance on unit tests without integration testing
 
----
+[Back to top](#top)
+
+#### BASE-TEST-002 - Test Independence
+
+*Rule:*
+- All tests **MUST** be independent and able to run in any order
+
+*Rationale:*
+- Ensures reliable and consistent test results
+- Facilitates parallel test execution
+- Reduces test maintenance overhead
+
+*Best Practices:*
+- Use setup and teardown methods properly
+- Avoid shared state between tests
+- Use test fixtures and mock data
+- Clean up resources after each test
+
+*Common Pitfalls:*
+- Tests that depend on execution order
+- Shared mutable state between test cases
+- Incomplete cleanup leading to test pollution
+
+[Back to top](#top)
+
+#### BASE-TEST-003 - Test Naming
+
+*Rule:*
+- All test names **MUST** clearly describe the scenario being tested
+
+*Rationale:*
+- Improves test maintainability and understanding
+- Facilitates debugging when tests fail
+- Serves as living documentation of system behavior
+
+*Best Practices:*
+- Use descriptive names that explain the test scenario
+- Include expected outcome in test names
+- Follow consistent naming conventions
+- Group related tests logically
+
+*Common Pitfalls:*
+- Vague or meaningless test names
+- Inconsistent naming conventions across test suites
+- Names that don't reflect actual test behavior
+
+[Back to top](#top)
+
+#### BASE-TEST-004 - Assertions
+
+*Rule:*
+- All tests **MUST** include specific assertions that verify expected behavior
+
+*Rationale:*
+- Ensures tests actually validate system behavior
+- Provides clear failure messages when tests fail
+- Documents expected system behavior
+
+*Best Practices:*
+- Use specific assertion methods for different data types
+- Include meaningful error messages in assertions
+- Assert on multiple aspects of the result when appropriate
+- Avoid multiple unrelated assertions in single tests
+
+*Common Pitfalls:*
+- Tests without assertions (smoke tests only)
+- Overly generic assertion messages
+- Too many assertions making failure diagnosis difficult
+
+[Back to top](#top)
+
+#### BASE-TEST-005 - Performance Testing
+
+*Rule:*
+- All critical system components **MUST** include performance tests with defined benchmarks
+
+*Rationale:*
+- Ensures system meets performance requirements
+- Identifies performance regressions early
+- Validates system behavior under load
+
+*Best Practices:*
+- Define clear performance benchmarks
+- Include load and stress testing scenarios
+- Monitor key performance metrics
+- Integrate performance tests into CI/CD pipeline
+
+*Common Pitfalls:*
+- Missing performance tests for critical paths
+- Unrealistic test scenarios that don't reflect production load
+- Ignoring performance test failures
+
+[Back to top](#top)
 
 ### Style Policies
 
 #### BASE-STYLE-001 - Naming Conventions
 
-**Rule:**
-- Identifiers **MUST** use meaningful names and **SHOULD** follow language-specific naming conventions.
+*Rule:*
+- All identifiers **MUST** follow consistent naming conventions appropriate for the language
 
-**Rationale:**
-- Meaningful names improve code readability and maintainability
-- Consistent naming conventions reduce cognitive load
-- Language-specific conventions ensure familiarity for developers
-- Good naming serves as self-documentation
+*Rationale:*
+- Improves code readability and maintainability
+- Reduces cognitive load when reading code
+- Facilitates team collaboration and code reviews
 
-**Best Practices:**
-- Use descriptive names that explain purpose
+*Best Practices:*
+- Use descriptive names that clearly indicate purpose
 - Follow language-specific naming conventions
-- Avoid abbreviations and single-letter names
 - Use consistent terminology across the codebase
-- Make names searchable and pronounceable
+- Avoid abbreviations and cryptic names
 
-[↑ Back to top](#top)
+*Common Pitfalls:*
+- Inconsistent naming patterns across the codebase
+- Overly short or meaningless variable names
+- Using misleading names that don't reflect actual purpose
 
----
+[Back to top](#top)
 
-## Quality Checklist
+#### BASE-STYLE-002 - Code Formatting
 
-**Content**
-- [x] All placeholders in brackets `[...]` have been replaced with actual content
-- [x] All rule statements use RFC-2119 keywords (**MUST**, **SHOULD**, etc.) in bold
-- [x] Each rule has clear rationale explaining the "why"
-- [x] Best practices are actionable and specific
-- [x] Common pitfalls help readers avoid mistakes
-- [x] Writing is concise and unambiguous; avoids vague terms
-- [x] Examples, if referenced, exist in `docs/`
-- [x] Every file in `docs/` is referenced or linked from the README
+*Rule:*
+- All code **MUST** follow consistent formatting standards enforced by automated tools
 
-**Metadata**
-- [x] "Back to top" anchor `#top` exists at file start
-- [x] Top-level heading is `# Common Development Policies` with real category name
-- [x] Section `## Quick Description` exists with descriptive paragraph
-- [x] Section `## Policies` exists
-- [x] Subsection **Table of Contents** is present under Policies
-- [x] Horizontal rule (`---`) after TOC exists
-- [x] Each policy group starts with `### <Policy Category Name>`
-- [x] Each rule has a `#### <PREFIX>-NNN - <Rule Title>` heading with actual values
-- [x] Each rule section begins with `**Rule:**` line
+*Rationale:*
+- Improves code readability and consistency
+- Reduces merge conflicts and code review noise
+- Facilitates team collaboration
 
-**Structure**
-- [x] Use heading 3 (###) for policy category sections
-- [x] Use heading 4 (####) for individual rules
-- [x] Bold text for file references in TOC
-- [x] Always include "Back to top" links after each rule
-- [x] All TOC links point to correct anchors using (#prefix-001---rule-title) format
-- [x] Consistent anchor format throughout document
+*Best Practices:*
+- Use automated formatting tools and linters
+- Configure IDE/editor to apply formatting automatically
+- Include formatting checks in CI/CD pipeline
+- Document formatting standards for the team
 
-**Policy File Verification**
-- [x] All rules referenced in README exist in corresponding YAML files
-- [x] Policy file names match file references in TOC
-- [x] Rule identifiers match between README and YAML files
-- [x] All RFC-2119 keywords are consistently formatted in bold
+*Common Pitfalls:*
+- Inconsistent indentation and spacing
+- Manual formatting leading to inconsistencies
+- Missing configuration for automated formatting tools
+
+[Back to top](#top)
+
+#### BASE-STYLE-003 - Documentation
+
+*Rule:*
+- All code **MUST** include appropriate inline comments and documentation
+
+*Rationale:*
+- Explains complex logic and business rules
+- Assists in code maintenance and debugging
+- Facilitates knowledge transfer and onboarding
+
+*Best Practices:*
+- Comment on why, not what the code does
+- Keep comments up-to-date with code changes
+- Use clear and concise language in comments
+- Document complex algorithms and business logic
+
+*Common Pitfalls:*
+- Excessive commenting on obvious code
+- Outdated comments that mislead readers
+- Missing documentation for complex business logic
+
+[Back to top](#top)
+
+#### BASE-STYLE-004 - Complexity
+
+*Rule:*
+- All functions and methods **MUST** maintain reasonable complexity levels
+
+*Rationale:*
+- Improves code maintainability and testability
+- Reduces bug introduction risk
+- Facilitates code understanding and reviews
+
+*Best Practices:*
+- Keep functions focused on single responsibilities
+- Extract complex logic into smaller functions
+- Use complexity metrics to guide refactoring
+- Limit cyclomatic complexity to reasonable levels
+
+*Common Pitfalls:*
+- Functions that try to do too many things
+- Deeply nested conditional logic
+- Ignoring complexity warnings from static analysis tools
+
+[Back to top](#top)
+
+#### BASE-STYLE-005 - Consistency
+
+*Rule:*
+- All code **MUST** maintain consistent patterns and conventions throughout the project
+
+*Rationale:*
+- Reduces cognitive load when switching between files
+- Facilitates team collaboration and code reviews
+- Improves overall code quality and maintainability
+
+*Best Practices:*
+- Establish and document coding standards
+- Use code analysis tools to enforce consistency
+- Regular code reviews to maintain standards
+- Refactor inconsistent code during maintenance
+
+*Common Pitfalls:*
+- Mixing different coding styles within the same project
+- Inconsistent error handling patterns
+- Variable naming conventions that change between modules
+
+[Back to top](#top)
+
+## Quality Gate
+
+> Evaluate with each adjustment
+
+### Content Verification
+- [x] All policies have clear identifiers (BASE-XXX format)
+- [x] Each policy includes rule, rationale, best practices, and common pitfalls
+- [x] All RFC-2119 keywords are used appropriately and consistently
+- [x] All links and references are valid and accessible
+- [x] Content is appropriate for the target audience (AI + human developers)
+
+### Metadata and Structure
+- [x] All headings follow proper hierarchy (###, ####)
+- [x] Table of Contents matches actual content structure
+- [x] All sections include "Back to top" navigation links
+- [x] HTML anchor at top of document is present
+- [x] Document follows the established template format
+
+### Policy File Integration
+- [x] All referenced policy files exist and are accessible
+- [x] Policy file links in TOC are correct and functional
+- [x] Content matches the policies defined in YAML files
+- [x] No orphaned or missing policy references
+- [x] Version consistency between README and policy files
+
+### Documentation Quality
+- [x] Writing is clear, concise, and free of grammatical errors
+- [x] Technical terminology is used correctly and consistently
+- [x] Examples and explanations are relevant and helpful
+- [x] No redundant or contradictory information
+- [x] Professional tone maintained throughout document
