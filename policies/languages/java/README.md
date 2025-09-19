@@ -39,9 +39,9 @@ These policies provide AI-friendly guidelines for Java development, covering cod
 
 ---
 
-## Coding Style Policies
+### Coding Style Policies
 
-## JAVA-STYLE-001 - Class Naming Convention
+#### JAVA-STYLE-001 - Class Naming Convention
 
 **Rule:**
 - Class names **MUST** use PascalCase and **SHOULD** be nouns that clearly describe the purpose of the class.
@@ -59,7 +59,7 @@ These policies provide AI-friendly guidelines for Java development, covering cod
 
 ---
 
-## JAVA-STYLE-002 - Method Naming Convention
+#### JAVA-STYLE-002 - Method Naming Convention
 
 **Rule:**
 - Method names **MUST** use camelCase and **SHOULD** be verbs that clearly describe the action performed.
@@ -77,9 +77,9 @@ These policies provide AI-friendly guidelines for Java development, covering cod
 
 ---
 
-## Security Policies
+### Security Policies
 
-## JAVA-SEC-001 - Input Validation
+#### JAVA-SEC-001 - Input Validation
 
 **Rule:**
 - All user inputs **MUST** be validated and sanitized before processing.
@@ -97,9 +97,9 @@ These policies provide AI-friendly guidelines for Java development, covering cod
 
 ---
 
-## Testing Policies
+### Testing Policies
 
-## JAVA-TEST-001 - Test Method Naming
+#### JAVA-TEST-001 - Test Method Naming
 
 **Rule:**
 - Test method names **SHOULD** clearly describe what is being tested using descriptive naming patterns.
@@ -117,9 +117,9 @@ These policies provide AI-friendly guidelines for Java development, covering cod
 
 ---
 
-## Performance Policies
+### Performance Policies
 
-## JAVA-PERF-001 - String Concatenation
+#### JAVA-PERF-001 - String Concatenation
 
 **Rule:**
 - String concatenation in loops **MUST** use StringBuilder or StringBuffer.
