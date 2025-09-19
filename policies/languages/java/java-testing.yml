@@ -1,0 +1,24 @@
+# Java Testing Policies
+# This file contains AI-friendly testing policies for Java development
+# Format: Each rule has an identifier, title, and RFC-2119 compliant policy
+
+rules:
+  JAVA-TEST-001:
+    title: "Test Method Naming"
+    policy: "Test method names SHOULD clearly describe what is being tested using descriptive naming patterns."
+    
+  JAVA-TEST-002:
+    title: "Test Coverage Requirements"
+    policy: "Unit tests SHOULD achieve at least 80% code coverage for business logic."
+    
+  JAVA-TEST-003:
+    title: "Test Independence"
+    policy: "Tests MUST be independent and MUST NOT rely on execution order."
+    
+  JAVA-TEST-004:
+    title: "Assertion Usage"
+    policy: "Tests MUST include meaningful assertions and SHOULD use descriptive assertion messages."
+    
+  JAVA-TEST-005:
+    title: "Test Data Management"
+    policy: "Test data SHOULD be isolated per test and MUST be cleaned up after test execution."

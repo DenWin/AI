@@ -1,0 +1,24 @@
+# Java Security Policies
+# This file contains AI-friendly security policies for Java development
+# Format: Each rule has an identifier, title, and RFC-2119 compliant policy
+
+rules:
+  JAVA-SEC-001:
+    title: "Input Validation"
+    policy: "All user inputs MUST be validated and sanitized before processing."
+    
+  JAVA-SEC-002:
+    title: "SQL Injection Prevention"
+    policy: "Database queries MUST use parameterized statements or prepared statements."
+    
+  JAVA-SEC-003:
+    title: "Sensitive Data Handling"
+    policy: "Sensitive data MUST NOT be logged and SHOULD be encrypted when stored."
+    
+  JAVA-SEC-004:
+    title: "Exception Information Disclosure"
+    policy: "Exception messages MUST NOT expose sensitive system information to end users."
+    
+  JAVA-SEC-005:
+    title: "Cryptographic Standards"
+    policy: "Cryptographic operations MUST use industry-standard algorithms and SHOULD use current best practices."

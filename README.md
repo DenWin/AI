@@ -13,10 +13,18 @@ A collection of structured prompts and policy definitions designed for use withi
 │   └── template.md       # Reusable prompt template
 └── policies/             # Policy definitions and guidelines
     ├── common/           # Common policies across all environments
+    │   ├── README.md     # Human-friendly policy explanations
+    │   ├── docs/         # Detailed examples and documentation  
     │   └── base.yml      # Base policy configuration
     └── languages/        # Language-specific policies
         └── java/         # Java development policies
-            └── java-style.yml
+            ├── README.md        # Human-friendly Java policy explanations
+            ├── docs/            # Detailed examples and documentation
+            ├── java-style.yml   # Coding style policies
+            ├── java-security.yml # Security policies
+            ├── java-testing.yml # Testing policies
+            ├── java-performance.yml # Performance policies
+            └── ...              # Additional Java-specific policies
 ```
 
 ## Getting Started
