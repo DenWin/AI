@@ -1,18 +1,18 @@
 # [Category] Policies Template
-# Keep rules token friendly, concise but precise and use RFC-2119 keywords.
+# Keep rules token friendly, concise but precise and use RFC-2119 keywords - in bold.
 
 policies:
   [PREFIX]-001:
     title: "[Descriptive Rule Title]"
-    rule: "[Rule statement using **MUST**, **SHOULD**, **MUST NOT**, **SHOULD NOT** keywords]"
+    rule:  "[Rule statement using **MUST**, **SHOULD**, **MUST NOT**, **SHOULD NOT** keywords]"
     
   [PREFIX]-002:
     title: "[Another Rule Title]"
-    rule: "[Another rule statement with RFC-2119 keywords]"
+    rule:  "[Another rule statement with RFC-2119 keywords]"
     
   [PREFIX]-003:
     title: "[Third Rule Title]"
-    rule: "[Third rule statement with appropriate RFC-2119 keywords]"
+    rule:  "[Third rule statement with appropriate RFC-2119 keywords]"
 
 # Template Instructions:
 # 1. Replace [Category] with the policy category (e.g., "Java Security", "Common Testing")
@@ -22,3 +22,4 @@ policies:
 # 5. Add more policies as needed following the same pattern
 # 6. Ensure all rules are token-friendly, concise, and precise
 # 7. Use **bold** formatting for RFC-2119 keywords (MUST, SHOULD, etc.)
+# 8. Remove these instructions once followed to keep it token friendly
