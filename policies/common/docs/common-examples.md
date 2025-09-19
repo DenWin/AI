@@ -1,5 +1,3 @@
-# Common Policy Examples
-
 This directory contains detailed examples and documentation for common development policies.
 
 ## Documentation Examples

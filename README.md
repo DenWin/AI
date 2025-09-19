@@ -25,6 +25,9 @@ A collection of structured prompts and policy definitions designed for use withi
             ├── java-testing.yml # Testing policies
             ├── java-performance.yml # Performance policies
             └── ...              # Additional Java-specific policies
+        └── python/          # Python development policies (future)
+        └── typescript/      # TypeScript development policies (future)
+        └── ...              # Additional language-specific policies
 ```
 
 ## Getting Started

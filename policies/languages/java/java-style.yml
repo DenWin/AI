@@ -1,36 +1,35 @@
 # Java Coding Style Policies
-# This file contains AI-friendly coding style policies for Java development
-# Format: Each rule has an identifier, title, and RFC-2119 compliant policy
+# Keep rules token friendly, concise but precise and use RFC-2119 keywords.
 
-rules:
+policies:
   JAVA-STYLE-001:
     title: "Class Naming Convention"
-    policy: "Class names MUST use PascalCase and SHOULD be nouns that clearly describe the purpose of the class."
+    rule: "Class names **MUST** use PascalCase and **SHOULD** be nouns that clearly describe the purpose of the class."
     
   JAVA-STYLE-002:
     title: "Method Naming Convention"
-    policy: "Method names MUST use camelCase and SHOULD be verbs that clearly describe the action performed."
+    rule: "Method names **MUST** use camelCase and **SHOULD** be verbs that clearly describe the action performed."
     
   JAVA-STYLE-003:
     title: "Variable Naming Convention"
-    policy: "Variable names MUST use camelCase and SHOULD be descriptive nouns or noun phrases."
+    rule: "Variable names **MUST** use camelCase and **SHOULD** be descriptive nouns or noun phrases."
     
   JAVA-STYLE-004:
     title: "Constant Naming Convention"
-    policy: "Constants MUST use UPPER_SNAKE_CASE and SHOULD be declared as static final."
+    rule: "Constants **MUST** use UPPER_SNAKE_CASE and **SHOULD** be declared as static final."
     
   JAVA-STYLE-005:
     title: "Package Naming Convention"
-    policy: "Package names MUST use lowercase and SHOULD follow reverse domain naming convention."
+    rule: "Package names **MUST** use lowercase and **SHOULD** follow reverse domain naming convention."
     
   JAVA-STYLE-006:
     title: "Indentation Standards"
-    policy: "Code MUST use 4 spaces for indentation and MUST NOT use tabs."
+    rule: "Code **MUST** use 4 spaces for indentation and **MUST NOT** use tabs."
     
   JAVA-STYLE-007:
     title: "Line Length Limits"
-    policy: "Lines SHOULD NOT exceed 120 characters and MUST NOT exceed 150 characters."
+    rule: "Lines **SHOULD NOT** exceed 120 characters and **MUST NOT** exceed 150 characters."
     
   JAVA-STYLE-008:
     title: "Brace Placement"
-    policy: "Opening braces MUST be placed on the same line as the declaration (K&R style)."
+    rule: "Opening braces **MUST** be placed on the same line as the declaration (K&R style)."

@@ -1,125 +1,132 @@
+<a id="top"></a>
 # Java Development Policies
 
 ## Quick Description
 
-These policies provide AI-friendly guidelines for Java development, covering coding style, security, testing, and performance. The policies are designed to be concise and precise for AI consumption, with detailed explanations available in the [docs folder](./docs/).
+These policies provide AI-friendly guidelines for Java development, covering coding style, security, testing, and performance. The policies are designed to be concise and precise for AI consumption, while this README will provide the rationale behind each policy. If further details are required additional examples can be found in the [docs folder](./docs/).
 
-## Table of Contents - All Policies in This Folder
+## Table of Contents
 
-### 2.1) [java-style.yml](./java-style.yml) - Coding Style Policies
+**Coding Style Policies:**
+- [JAVA-STYLE-001 - Class Naming Convention](#java-style-001---class-naming-convention)
+- [JAVA-STYLE-002 - Method Naming Convention](#java-style-002---method-naming-convention)
+- [JAVA-STYLE-003 - Variable Naming Convention](#java-style-003---variable-naming-convention)
+- [JAVA-STYLE-004 - Constant Naming Convention](#java-style-004---constant-naming-convention)
+- [JAVA-STYLE-005 - Package Naming Convention](#java-style-005---package-naming-convention)
+- [JAVA-STYLE-006 - Indentation Standards](#java-style-006---indentation-standards)
+- [JAVA-STYLE-007 - Line Length Limits](#java-style-007---line-length-limits)
+- [JAVA-STYLE-008 - Brace Placement](#java-style-008---brace-placement)
 
-#### 2.1.1) JAVA-STYLE-001 - Class Naming Convention
-Class names must use PascalCase (e.g., `UserService`, `PaymentProcessor`) and should be nouns that clearly describe the class purpose. This ensures consistent naming across the codebase and improves readability.
+**Security Policies:**
+- [JAVA-SEC-001 - Input Validation](#java-sec-001---input-validation)
+- [JAVA-SEC-002 - SQL Injection Prevention](#java-sec-002---sql-injection-prevention)
+- [JAVA-SEC-003 - Sensitive Data Handling](#java-sec-003---sensitive-data-handling)
+- [JAVA-SEC-004 - Exception Information Disclosure](#java-sec-004---exception-information-disclosure)
+- [JAVA-SEC-005 - Cryptographic Standards](#java-sec-005---cryptographic-standards)
 
-[↑ Back to top](#java-development-policies)
+**Testing Policies:**
+- [JAVA-TEST-001 - Test Method Naming](#java-test-001---test-method-naming)
+- [JAVA-TEST-002 - Test Coverage Requirements](#java-test-002---test-coverage-requirements)
+- [JAVA-TEST-003 - Test Independence](#java-test-003---test-independence)
+- [JAVA-TEST-004 - Assertion Usage](#java-test-004---assertion-usage)
+- [JAVA-TEST-005 - Test Data Management](#java-test-005---test-data-management)
 
-#### 2.1.2) JAVA-STYLE-002 - Method Naming Convention  
-Method names must use camelCase (e.g., `calculateTotal()`, `processPayment()`) and should be verbs describing the action. This makes code self-documenting and follows Java conventions.
+**Performance Policies:**
+- [JAVA-PERF-001 - String Concatenation](#java-perf-001---string-concatenation)
+- [JAVA-PERF-002 - Collection Sizing](#java-perf-002---collection-sizing)
+- [JAVA-PERF-003 - Resource Management](#java-perf-003---resource-management)
+- [JAVA-PERF-004 - Object Creation](#java-perf-004---object-creation)
 
-[↑ Back to top](#java-development-policies)
+---
 
-#### 2.1.3) JAVA-STYLE-003 - Variable Naming Convention
-Variable names must use camelCase (e.g., `userName`, `totalAmount`) and should be descriptive nouns. Avoid abbreviations and single-letter names except for loop counters.
+## JAVA-STYLE-001 - Class Naming Convention
 
-[↑ Back to top](#java-development-policies)
+**Rule:**
+- Class names **MUST** use PascalCase and **SHOULD** be nouns that clearly describe the purpose of the class.
 
-#### 2.1.4) JAVA-STYLE-004 - Constant Naming Convention
-Constants must use UPPER_SNAKE_CASE (e.g., `MAX_RETRY_COUNT`, `DEFAULT_TIMEOUT`) and should be declared as `static final`. This distinguishes constants from variables.
+**Rationale:**
+- PascalCase is the established Java convention for class names
+- Noun-based names clearly indicate what the class represents
+- Descriptive names improve code readability and maintainability
+- Consistent naming reduces cognitive load when reading code
 
-[↑ Back to top](#java-development-policies)
+**Examples:**
+- See [docs/JAVA-STYLE-001-class-naming.md](./docs/JAVA-STYLE-001-class-naming.md) for detailed examples
 
-#### 2.1.5) JAVA-STYLE-005 - Package Naming Convention
-Package names must use lowercase and should follow reverse domain naming (e.g., `com.company.project.module`). This prevents naming conflicts and organizes code logically.
+[↑ Back to top](#top)
 
-[↑ Back to top](#java-development-policies)
+---
 
-#### 2.1.6) JAVA-STYLE-006 - Indentation Standards
-Code must use 4 spaces for indentation and must not use tabs. This ensures consistent formatting across different editors and environments.
+## JAVA-STYLE-002 - Method Naming Convention
 
-[↑ Back to top](#java-development-policies)
+**Rule:**
+- Method names **MUST** use camelCase and **SHOULD** be verbs that clearly describe the action performed.
 
-#### 2.1.7) JAVA-STYLE-007 - Line Length Limits
-Lines should not exceed 120 characters and must not exceed 150 characters. This improves code readability and prevents horizontal scrolling.
+**Rationale:**
+- camelCase is the established Java convention for method names
+- Verb-based names clearly indicate what the method does
+- Descriptive names make code self-documenting
+- Consistent naming improves code comprehension
 
-[↑ Back to top](#java-development-policies)
+**Examples:**
+- See [docs/JAVA-STYLE-002-method-naming.md](./docs/JAVA-STYLE-002-method-naming.md) for detailed examples
 
-#### 2.1.8) JAVA-STYLE-008 - Brace Placement
-Opening braces must be placed on the same line as the declaration (K&R style). This follows Java conventions and saves vertical space.
+[↑ Back to top](#top)
 
-[↑ Back to top](#java-development-policies)
+---
 
-### 2.2) [java-security.yml](./java-security.yml) - Security Policies
+## JAVA-SEC-001 - Input Validation
 
-#### 2.2.1) JAVA-SEC-001 - Input Validation
-All user inputs must be validated and sanitized to prevent injection attacks and ensure data integrity. Use validation frameworks and never trust user input.
+**Rule:**
+- All user inputs **MUST** be validated and sanitized before processing.
 
-[↑ Back to top](#java-development-policies)
+**Rationale:**
+- Input validation prevents injection attacks and data corruption
+- Sanitization ensures data conforms to expected formats
+- Proper validation improves application security and reliability
+- Early validation provides better error messages to users
 
-#### 2.2.2) JAVA-SEC-002 - SQL Injection Prevention
-Database queries must use parameterized statements or prepared statements to prevent SQL injection attacks. Never concatenate user input directly into SQL strings.
+**Examples:**
+- See [docs/JAVA-SEC-001-input-validation.md](./docs/JAVA-SEC-001-input-validation.md) for detailed examples
 
-[↑ Back to top](#java-development-policies)
+[↑ Back to top](#top)
 
-#### 2.2.3) JAVA-SEC-003 - Sensitive Data Handling
-Sensitive data (passwords, tokens, personal information) must not be logged and should be encrypted when stored. Use appropriate encryption and masking techniques.
+---
 
-[↑ Back to top](#java-development-policies)
+## JAVA-TEST-001 - Test Method Naming
 
-#### 2.2.4) JAVA-SEC-004 - Exception Information Disclosure
-Exception messages must not expose sensitive system information to end users. Log detailed errors internally but show generic messages to users.
+**Rule:**
+- Test method names **SHOULD** clearly describe what is being tested using descriptive naming patterns.
 
-[↑ Back to top](#java-development-policies)
+**Rationale:**
+- Descriptive test names serve as documentation for expected behavior
+- Clear naming helps identify failing tests quickly
+- Good test names make code reviews more effective
+- Self-documenting tests reduce need for additional comments
 
-#### 2.2.5) JAVA-SEC-005 - Cryptographic Standards
-Cryptographic operations must use industry-standard algorithms (AES, RSA, etc.) and should follow current best practices. Avoid deprecated algorithms.
+**Examples:**
+- See [docs/JAVA-TEST-001-test-naming.md](./docs/JAVA-TEST-001-test-naming.md) for detailed examples
 
-[↑ Back to top](#java-development-policies)
+[↑ Back to top](#top)
 
-### 2.3) [java-testing.yml](./java-testing.yml) - Testing Policies
+---
 
-#### 2.3.1) JAVA-TEST-001 - Test Method Naming
-Test method names should clearly describe what is being tested using patterns like `should_ReturnResult_When_Condition()` or `testMethodName_Scenario_ExpectedResult()`.
+## JAVA-PERF-001 - String Concatenation
 
-[↑ Back to top](#java-development-policies)
+**Rule:**
+- String concatenation in loops **MUST** use StringBuilder or StringBuffer.
 
-#### 2.3.2) JAVA-TEST-002 - Test Coverage Requirements
-Unit tests should achieve at least 80% code coverage for business logic. Focus on testing critical paths and edge cases.
+**Rationale:**
+- String objects are immutable in Java, creating new objects for each concatenation
+- StringBuilder/StringBuffer use mutable buffers, avoiding object creation overhead
+- Significant performance improvement in loops with many concatenations
+- Reduces garbage collection pressure
 
-[↑ Back to top](#java-development-policies)
+**Examples:**
+- See [docs/JAVA-PERF-001-string-concatenation.md](./docs/JAVA-PERF-001-string-concatenation.md) for detailed examples
 
-#### 2.3.3) JAVA-TEST-003 - Test Independence
-Tests must be independent and must not rely on execution order. Each test should set up its own data and clean up afterward.
+[↑ Back to top](#top)
 
-[↑ Back to top](#java-development-policies)
+---
 
-#### 2.3.4) JAVA-TEST-004 - Assertion Usage
-Tests must include meaningful assertions with descriptive messages. Use `assertThat()` with clear descriptions of what is expected.
-
-[↑ Back to top](#java-development-policies)
-
-#### 2.3.5) JAVA-TEST-005 - Test Data Management
-Test data should be isolated per test and must be cleaned up after execution. Use test databases or in-memory data stores when possible.
-
-[↑ Back to top](#java-development-policies)
-
-### 2.4) [java-performance.yml](./java-performance.yml) - Performance Policies
-
-#### 2.4.1) JAVA-PERF-001 - String Concatenation
-String concatenation in loops must use `StringBuilder` or `StringBuffer` to avoid creating multiple string objects and improve performance.
-
-[↑ Back to top](#java-development-policies)
-
-#### 2.4.2) JAVA-PERF-002 - Collection Sizing
-Collections should be initialized with appropriate initial capacity when size is known to avoid unnecessary resizing operations.
-
-[↑ Back to top](#java-development-policies)
-
-#### 2.4.3) JAVA-PERF-003 - Resource Management
-Resources (files, connections, streams) must be properly closed using try-with-resources or finally blocks to prevent memory leaks.
-
-[↑ Back to top](#java-development-policies)
-
-#### 2.4.4) JAVA-PERF-004 - Object Creation
-Unnecessary object creation should be avoided in performance-critical code paths. Consider object pooling or reuse when appropriate.
-
-[↑ Back to top](#java-development-policies)
+*Note: This README shows key examples. For complete policy details, see the respective policy files and docs folder.*

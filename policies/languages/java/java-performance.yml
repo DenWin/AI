@@ -1,20 +1,19 @@
 # Java Performance Policies
-# This file contains AI-friendly performance policies for Java development
-# Format: Each rule has an identifier, title, and RFC-2119 compliant policy
+# Keep rules token friendly, concise but precise and use RFC-2119 keywords.
 
-rules:
+policies:
   JAVA-PERF-001:
     title: "String Concatenation"
-    policy: "String concatenation in loops MUST use StringBuilder or StringBuffer."
+    rule: "String concatenation in loops **MUST** use StringBuilder or StringBuffer."
     
   JAVA-PERF-002:
     title: "Collection Sizing"
-    policy: "Collections SHOULD be initialized with appropriate initial capacity when size is known."
+    rule: "Collections **SHOULD** be initialized with appropriate initial capacity when size is known."
     
   JAVA-PERF-003:
     title: "Resource Management"
-    policy: "Resources MUST be properly closed using try-with-resources or finally blocks."
+    rule: "Resources **MUST** be properly closed using try-with-resources or finally blocks."
     
   JAVA-PERF-004:
     title: "Object Creation"
-    policy: "Unnecessary object creation SHOULD be avoided in performance-critical code paths."
+    rule: "Unnecessary object creation **SHOULD** be avoided in performance-critical code paths."

@@ -1,24 +1,23 @@
 # Base Common Policies
-# This file contains core AI-friendly policies that apply across all environments
-# Format: Each rule has an identifier, title, and RFC-2119 compliant policy
+# Keep rules token friendly, concise but precise and use RFC-2119 keywords.
 
-rules:
+policies:
   BASE-001:
     title: "Code Documentation"
-    policy: "Public APIs MUST be documented and SHOULD include usage examples."
+    rule: "Public APIs **MUST** be documented and **SHOULD** include usage examples."
     
   BASE-002:
     title: "Error Handling"
-    policy: "Errors MUST be handled gracefully and SHOULD provide meaningful feedback."
+    rule: "Errors **MUST** be handled gracefully and **SHOULD** provide meaningful feedback."
     
   BASE-003:
     title: "Logging Standards"
-    policy: "Applications MUST implement structured logging and SHOULD use appropriate log levels."
+    rule: "Applications **MUST** implement structured logging and **SHOULD** use appropriate log levels."
     
   BASE-004:
     title: "Version Control"
-    policy: "Commit messages MUST be descriptive and SHOULD follow conventional commit format."
+    rule: "Commit messages **MUST** be descriptive and **SHOULD** follow conventional commit format."
     
   BASE-005:
     title: "Configuration Management"
-    policy: "Configuration MUST be externalized and SHOULD support multiple environments."
+    rule: "Configuration **MUST** be externalized and **SHOULD** support multiple environments."
