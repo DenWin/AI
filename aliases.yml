@@ -1,2 +1,4 @@
-# Root-level aliases configuration
-# This file will contain global aliases for the AI system
+aliases:
+  use-policies: prompts/use-policies.md
+  evaluate-text: prompts/evaluate-text.md
+  evaluate-doc: prompts/evaluate-doc.md
