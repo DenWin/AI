@@ -1,0 +1,24 @@
+# [Category] Policies Template
+# Keep rules token friendly, concise but precise and use RFC-2119 keywords.
+
+policies:
+  [PREFIX]-001:
+    title: "[Descriptive Rule Title]"
+    rule: "[Rule statement using **MUST**, **SHOULD**, **MUST NOT**, **SHOULD NOT** keywords]"
+    
+  [PREFIX]-002:
+    title: "[Another Rule Title]"
+    rule: "[Another rule statement with RFC-2119 keywords]"
+    
+  [PREFIX]-003:
+    title: "[Third Rule Title]"
+    rule: "[Third rule statement with appropriate RFC-2119 keywords]"
+
+# Template Instructions:
+# 1. Replace [Category] with the policy category (e.g., "Java Security", "Common Testing")
+# 2. Replace [PREFIX] with appropriate prefix (e.g., JAVA-SEC, BASE-TEST, PYTHON-STYLE)
+# 3. Replace [Descriptive Rule Title] with clear, concise rule titles
+# 4. Replace [Rule statement...] with specific, actionable rules using RFC-2119 keywords
+# 5. Add more policies as needed following the same pattern
+# 6. Ensure all rules are token-friendly, concise, and precise
+# 7. Use **bold** formatting for RFC-2119 keywords (MUST, SHOULD, etc.)
