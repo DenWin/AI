@@ -83,35 +83,42 @@ These policies provide [brief description of what the policies cover]. The polic
 
 ---
 
-<!-- Template Instructions:
+## Quality Checklist
 
-1. Replace all placeholders in brackets with actual content:
-   - [Category] - Policy category (e.g., "Java Security", "Common Testing")
-   - [PREFIX] - Rule prefix (e.g., JAVA-SEC, BASE-TEST)
-   - [Rule Title] - Descriptive rule titles
-   - [rule-title-lowercase] - Lowercase with hyphens for anchor links
-   - [Policy File Name] - Name of the policy file
-   - [Policy Category Name] - Section header for the category
+**Content**
+- [ ] All placeholders in brackets `[...]` have been replaced with actual content
+- [ ] All rule statements use RFC-2119 keywords (**MUST**, **SHOULD**, etc.) in bold
+- [ ] Each rule has clear rationale explaining the "why"
+- [ ] Best practices are actionable and specific
+- [ ] Common pitfalls help readers avoid mistakes
+- [ ] Writing is concise and unambiguous; avoids vague terms
+- [ ] Examples, if referenced, exist in `docs/`
+- [ ] Every file in `docs/` is referenced or linked from the README
 
-2. Structure Guidelines:
-   - Use heading 3 (###) for policy category sections
-   - Use heading 4 (####) for individual rules
-   - Bold text for file references in TOC
-   - Always include "Back to top" links after each rule
+**Metadata**
+- [ ] "Back to top" anchor `#top` exists at file start
+- [ ] Top-level heading is `# <Category> Policies` with real category name
+- [ ] Section `## Quick Description` exists with descriptive paragraph
+- [ ] Section `## Policies` exists
+- [ ] Subsection **Table of Contents** is present under Policies
+- [ ] Horizontal rule (`---`) after TOC exists
+- [ ] Each policy group starts with `### <Policy Category Name>`
+- [ ] Each rule has a `#### <PREFIX>-NNN - <Rule Title>` heading with actual values
+- [ ] Each rule section begins with `**Rule:**` line
 
-3. Content Guidelines:
-   - Keep descriptions concise but informative
-   - Focus on practical guidance in best practices
-   - Include rationale that explains the "why"
-   - List common pitfalls to help avoid mistakes
-   - Make content language-agnostic for common policies
+**Structure**
+- [ ] Use heading 3 (###) for policy category sections
+- [ ] Use heading 4 (####) for individual rules
+- [ ] Bold text for file references in TOC
+- [ ] Always include "Back to top" links after each rule
+- [ ] All TOC links point to correct anchors using (#prefix-001---rule-title) format
+- [ ] Consistent anchor format throughout document
 
-4. Navigation:
-   - Ensure all TOC links point to correct anchors
-   - Use consistent anchor format (#prefix-001---rule-title)
-   - Include HTML anchor at top for "Back to top" links
-
--->
+**Policy File Verification**
+- [ ] All rules referenced in README exist in corresponding YAML files
+- [ ] Policy file names match file references in TOC
+- [ ] Rule identifiers match between README and YAML files
+- [ ] All RFC-2119 keywords are consistently formatted in bold
 
 ## Validation Checklist
 Evaluate with each adjustment

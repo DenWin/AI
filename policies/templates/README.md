@@ -48,14 +48,31 @@ mkdir -p policies/[category]/[subcategory]/docs
 ### Step 2: Copy and Customize Policy File
 1. Copy `policy-template.yml` to your new directory
 2. Rename to descriptive name (e.g., `security.yml`, `java-style.yml`)
-3. Replace all placeholders with actual content
-4. Follow RFC-2119 keywords (MUST, SHOULD, etc.)
+3. Replace all placeholders with actual content:
+   - [Category] with the policy category (e.g., "Java Security", "Common Testing")
+   - [PREFIX] with appropriate prefix (e.g., JAVA-SEC, BASE-TEST, PYTHON-STYLE)
+   - [Descriptive Rule Title] with clear, concise rule titles
+   - [Rule statement...] with specific, actionable rules using RFC-2119 keywords
+4. Add more policies as needed following the same pattern
+5. Ensure all rules are token-friendly, concise, and precise
+6. Use **bold** formatting for RFC-2119 keywords (MUST, SHOULD, etc.)
 
 ### Step 3: Create README
 1. Copy `README-template.md` to your policy directory
-2. Replace all placeholders with actual content
-3. Ensure all links and anchors work correctly
-4. Follow the established heading hierarchy
+2. Replace all placeholders in brackets with actual content:
+   - [Category] - Policy category (e.g., "Java Security", "Common Testing")
+   - [PREFIX] - Rule prefix (e.g., JAVA-SEC, BASE-TEST)
+   - [Rule Title] - Descriptive rule titles
+   - [rule-title-lowercase] - Lowercase with hyphens for anchor links
+   - [Policy File Name] - Name of the policy file
+   - [Policy Category Name] - Section header for the category
+3. Follow structure guidelines:
+   - Use heading 3 (###) for policy category sections
+   - Use heading 4 (####) for individual rules
+   - Bold text for file references in TOC
+   - Always include "Back to top" links after each rule
+4. Ensure all links and anchors work correctly
+5. Complete the quality checklist at the end
 
 ### Step 4: Add Examples (If Needed)
 1. Copy `docs/example-template.md` for complex rules
@@ -105,22 +122,6 @@ mkdir -p policies/[category]/[subcategory]/docs
 - Examples: `JAVA-SEC-001-input-validation.md`, `BASE-TEST-001-coverage.md`
 - Use lowercase with hyphens for titles
 - Match the rule identifiers from policy files
-
-## Quality Checklist
-
-### Before Creating New Policies
-- [ ] Check if similar policies already exist
-- [ ] Ensure rules are specific and actionable
-- [ ] Verify RFC-2119 compliance
-- [ ] Review for token-friendliness
-- [ ] Test all links and navigation
-
-### Before Publishing
-- [ ] All placeholders replaced with actual content
-- [ ] Navigation links work correctly
-- [ ] Content follows established patterns
-- [ ] Examples are relevant and helpful
-- [ ] Documentation is clear and comprehensive
 
 ## Maintenance
 

@@ -7,23 +7,41 @@ A collection of structured prompts and policy definitions designed for use withi
 ```
 ├── README.md                         # Project documentation
 ├── aliases.yml                       # Global aliases configuration
-├── .gitignore                       # Git ignore rules for md/yml files
+├── .gitignore                        # Git ignore rules for md/yml files
+├── AI-instructions/                  # AI-specific instructions and guidelines
+│   └── ChatGPT/                     # ChatGPT-specific instructions
+│       └── Detailed_Instructions.md # Detailed ChatGPT instructions
 ├── prompts/                         # Prompt templates and definitions
+│   ├── README.md                    # Prompt usage guide and quality checklist
 │   ├── analyze.md                   # Analysis prompts
-│   └── template.md                  # Reusable prompt template
+│   ├── template.md                  # Reusable prompt template
+│   ├── use-policies.md              # Policy compliance analyzer
+│   ├── evaluate-text.md             # Text quality analyzer
+│   └── evaluate-doc.md              # Document analyzer
 └── policies/                        # Policy definitions and guidelines
     ├── common/                      # Common policies across all environments
     │   ├── README.md                # Human-friendly policy explanations
     │   ├── docs/                    # Detailed examples and documentation  
-    │   └── base.yml                 # Base policy configuration
-    └── languages/                   # Language-specific policies
-        └── java/                    # Java development policies
-        |   ├── README.md            # Human-friendly Java policy explanations
-        |   ├── docs/                # Detailed examples and documentation
-        |   ├── java-style.yml       # Coding style policies
-        |   ├── java-security.yml    # Security policies
-        |   └── ...                  # Additional Java-specific policies
-        └── ...                      # Additional language-specific policies
+    │   ├── base.yml                 # Base policy configuration
+    │   ├── security.yml             # Security policies
+    │   ├── testing.yml              # Testing policies
+    │   └── style.yml                # Style policies
+    ├── languages/                   # Language-specific policies
+    │   └── java/                    # Java development policies
+    │   |   ├── README.md            # Human-friendly Java policy explanations
+    │   |   ├── docs/                # Detailed examples and documentation
+    │   |   ├── java-style.yml       # Coding style policies
+    │   |   ├── java-security.yml    # Security policies
+    │   |   ├── java-testing.yml     # Testing policies
+    │   |   ├── java-performance.yml # Performance policies
+    │   |   └── ...                  # Additional Java-specific policies
+    │   └── ...                      # Additional language-specific policies
+    └── templates/                   # Template system for creating new policies
+        ├── README.md                # Template usage guide and best practices
+        ├── policy-template.yml      # Policy file template
+        ├── README-template.md      # README template for policy directories
+        └── docs/                   # Documentation templates
+            └── example-template.md # Detailed examples template
 ```
 
 ## Getting Started
