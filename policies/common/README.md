@@ -271,3 +271,42 @@ These policies provide foundational AI-friendly guidelines that apply across all
 - Make names searchable and pronounceable
 
 [↑ Back to top](#top)
+
+---
+
+## Quality Checklist
+
+**Content**
+- [x] All placeholders in brackets `[...]` have been replaced with actual content
+- [x] All rule statements use RFC-2119 keywords (**MUST**, **SHOULD**, etc.) in bold
+- [x] Each rule has clear rationale explaining the "why"
+- [x] Best practices are actionable and specific
+- [x] Common pitfalls help readers avoid mistakes
+- [x] Writing is concise and unambiguous; avoids vague terms
+- [x] Examples, if referenced, exist in `docs/`
+- [x] Every file in `docs/` is referenced or linked from the README
+
+**Metadata**
+- [x] "Back to top" anchor `#top` exists at file start
+- [x] Top-level heading is `# Common Development Policies` with real category name
+- [x] Section `## Quick Description` exists with descriptive paragraph
+- [x] Section `## Policies` exists
+- [x] Subsection **Table of Contents** is present under Policies
+- [x] Horizontal rule (`---`) after TOC exists
+- [x] Each policy group starts with `### <Policy Category Name>`
+- [x] Each rule has a `#### <PREFIX>-NNN - <Rule Title>` heading with actual values
+- [x] Each rule section begins with `**Rule:**` line
+
+**Structure**
+- [x] Use heading 3 (###) for policy category sections
+- [x] Use heading 4 (####) for individual rules
+- [x] Bold text for file references in TOC
+- [x] Always include "Back to top" links after each rule
+- [x] All TOC links point to correct anchors using (#prefix-001---rule-title) format
+- [x] Consistent anchor format throughout document
+
+**Policy File Verification**
+- [x] All rules referenced in README exist in corresponding YAML files
+- [x] Policy file names match file references in TOC
+- [x] Rule identifiers match between README and YAML files
+- [x] All RFC-2119 keywords are consistently formatted in bold
