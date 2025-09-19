@@ -9,7 +9,6 @@ A collection of structured prompts and policy definitions designed for use withi
 ├── aliases.yml            # Global aliases configuration
 ├── .gitignore            # Git ignore rules for md/yml files
 ├── prompts/              # Prompt templates and definitions
-│   ├── aliases.yml       # Prompt-specific aliases
 │   ├── analyze.md        # Analysis prompts
 │   └── template.md       # Reusable prompt template
 └── policies/             # Policy definitions and guidelines
