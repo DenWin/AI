@@ -1,158 +1,91 @@
-# Content Evaluation Analyzer
+# Evaluate Text — AI-Optimized Prompt
 
-## Command: `/evaluate-text` or `/evaluate-doc`
+## 🎯 Purpose
 
-### Purpose
-Comprehensive analysis of documents and text content for quality, completeness, consistency, and clarity.
+Evaluate structured or semi-structured content (Markdown, YAML, plaintext, etc.) with a focus on clarity, consistency, and execution-readiness.
 
-### Usage
-```
-/evaluate-text
-/evaluate-doc
-```
-Both commands use the same comprehensive analysis system optimized for different content types.
+---
 
-### Analysis Framework
+## ✅ Evaluation Criteria
 
-#### 1. Redundancy Analysis
-- Identify where contents repeat unnecessarily
-- Find duplicate information across sections
-- Highlight repetitive phrases and concepts
-- Suggest consolidation opportunities
+### 1. Executive Summary
 
-#### 2. Consistency Analysis
-**Contradictions and Clarity:**
-- Detect contradictory statements or unclear passages
-- Identify ambiguous phrasing that could cause confusion
-- Find inconsistent terminology usage
-- Highlight logical inconsistencies
+Include this section in all output:
 
-**Structural Consistency:**
-- Evaluate internal document structure consistency
-- Check heading hierarchy and formatting
-- Verify consistent style and voice throughout
-- Assess navigation and organization patterns
+* **Content Understood As**: A short description of what the evaluator believes the content is about
+* **Overall Quality Score**: X/10
+* **Primary Issues**: \[Brief list of major problems]
+* **Strengths**: \[Key positive aspects]
 
-#### 3. Completeness Analysis
-- Identify essential missing information needed for coherence
-- Find gaps in logical flow and argumentation
-- Detect missing context or background information
-- Highlight incomplete explanations or processes
+---
 
-#### 4. Clarity Analysis
-- Identify passages that are hard to understand
-- Find ambiguously phrased content
-- Detect overly complex or jargon-heavy sections
-- Suggest improvements for readability
+### 2. Redundancy
 
-### Output Format
+* Identify overlapping, duplicated, or contradictory sections or logic
+* Highlight repeated rationale, phrasing, or structure
 
-```
-## Content Evaluation Report
+### 3. Grammar & Orthography
 
-### Executive Summary
-- Overall Quality Score: X/10
-- Primary Issues: [Brief list of main problems]
-- Strengths: [Key positive aspects]
+* Detect grammar and spelling issues (English or German)
+* Flag inconsistent punctuation or capitalization
 
-### Detailed Analysis
+### 4. Clarity & Ambiguity
 
-#### 1. Redundancy Issues
-**Identified Problems:**
-- [Quote or reference]: [Explanation of redundancy]
-- [Quote or reference]: [Explanation of redundancy]
+* Detect vague, ambiguous, or overly complex wording
+* Flag unclear references, especially in multilingual or technical phrasing
 
-**Suggestions for Improvement:**
-- [Specific recommendation with location]
-- [Specific recommendation with location]
+### 5. Consistency & Tone
 
-#### 2. Consistency Issues
-**Contradictions and Unclear Passages:**
-- [Quote or reference]: [Explanation of issue]
-- [Quote or reference]: [Explanation of issue]
+* Identify tone inconsistencies (formal/informal/conflicting intent)
+* Check structure and formatting alignment (e.g., indentation, punctuation)
+* Highlight contradictions between rules or logic blocks
 
-**Structural Inconsistencies:**
-- [Location]: [Description of structural issue]
-- [Location]: [Description of structural issue]
+### 6. Cross-language Clarity
 
-**Suggestions for Improvement:**
-- [Specific recommendation]
-- [Specific recommendation]
+* Flag hybrid phrases that combine English and German improperly
+* Ensure clarity regardless of language context or phrasing mix
 
-#### 3. Completeness Issues
-**Missing Essential Information:**
-- [Area/Topic]: [Description of what's missing]
-- [Area/Topic]: [Description of what's missing]
+### 7. Token Efficiency
 
-**Suggestions for Improvement:**
-- [Specific recommendation for additions]
-- [Specific recommendation for additions]
+* Detect unnecessarily verbose or overly qualified language
+* Highlight opportunities for cleaner, more efficient expression
 
-#### 4. Clarity Issues
-**Hard to Understand Passages:**
-- [Quote or reference]: [Explanation of clarity issue]
-- [Quote or reference]: [Explanation of clarity issue]
+### 8. UTF Character Analysis
 
-**Suggestions for Improvement:**
-- [Specific recommendation for clearer phrasing]
-- [Specific recommendation for clearer phrasing]
+* List unusual characters (e.g. —, “, ”, …) used in the content
+* Highlight those likely from auto-formatting or copy-paste artifacts
 
-### Document Strengths
-**Areas of Excellence:**
-- [Specific strength with example]
-- [Specific strength with example]
+---
 
-**Effective Elements:**
-- [What works well and why]
-- [What works well and why]
+## 📄 Output Format
 
-### Recommendations Summary
-**Priority 1 (Critical):**
-- [Most important improvements needed]
+Return a markdown report with these sections:
 
-**Priority 2 (Important):**
-- [Secondary improvements that would enhance quality]
+### ✅ Passed Checks
 
-**Priority 3 (Enhancement):**
-- [Nice-to-have improvements for polish]
-```
+* Sections fully meeting expectations
 
-### Specialized Analysis Modes
+### ⚠️ Partial or Problematic Checks
 
-#### Document-Specific Analysis
-For structured documents, additional evaluation includes:
-- Table of contents accuracy and completeness
-- Cross-reference validation
-- Section numbering and hierarchy
-- Appendix and bibliography completeness
-- Index accuracy (if applicable)
+* Grouped by evaluation category (e.g. Redundancy, Clarity, etc.)
+* For each issue: quote or describe the content, explain the problem, and suggest a concise fix
 
-#### Text-Specific Analysis
-For general text content, additional evaluation includes:
-- Flow and transition effectiveness
-- Paragraph structure and coherence
-- Sentence variety and rhythm
-- Word choice and vocabulary consistency
-- Tone and voice appropriateness
+### ❌ Critical Issues
 
-### Alternative Analysis Approaches
+* Blocking issues (e.g., structural contradiction, severe formatting errors)
 
-#### Quick Scan Mode
-For rapid assessment, focus on:
-- Major structural issues
-- Critical missing information
-- Obvious contradictions
-- Most confusing passages
+---
 
-#### Deep Dive Mode
-For comprehensive review, include:
-- Line-by-line analysis
-- Detailed style and grammar review
-- Extensive cross-referencing
-- Comprehensive suggestions for improvement
+## 🛑 Action Scope
 
-### Best Practices for Content Providers
-1. **Provide Context**: Include information about the document's purpose and target audience
-2. **Specify Focus Areas**: Indicate if there are particular areas of concern
-3. **Include Requirements**: Share any specific standards or guidelines the content should meet
-4. **Request Depth Level**: Specify whether you need a quick overview or detailed analysis
+* Do **not** rewrite or correct the document
+* Do **not** merge, modify, or restructure content unless explicitly instructed
+* Focus on **issue identification only** — reporting, not fixing
+
+---
+
+## 🔁 Usage
+
+Use this prompt to evaluate prompt templates, instructional text, YAML specs, or general technical writing.
+
+This version is AI-executable and intended to be embedded in alias workflows (e.g., `@evaluate-text`).
