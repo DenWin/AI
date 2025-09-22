@@ -1,91 +1,124 @@
-# Evaluate Text — AI-Optimized Prompt
+# 📝 Evaluate
 
-## 🎯 Purpose
+## 📌 Purpose
 
-Evaluate structured or semi-structured content (Markdown, YAML, plaintext, etc.) with a focus on clarity, consistency, and execution-readiness.
+Ensure that any text, document, or external reference is checked for quality, completeness, and clarity.
+This enables consistent and reliable results without requiring the user to manually re-check.
 
----
+## 📐 Dimensions
 
-## ✅ Evaluation Criteria
+### 1) Executive Summary
 
-### 1. Executive Summary
+* **Understanding**: State in 2–4 sentences what the document is about. Identify type/genre and intent (e.g., SQL vs Java code, policy vs satire).
+* **Overall quality score**: Assign a numeric score (0–100).
+* **Primary issues**: List the main issues found.
+* **Strengths**: List the main strengths.
+* **Placement**: Render this block at the very top of the report, before all other sections.
 
-Include this section in all output:
+### 2) Redundancy
 
-* **Content Understood As**: A short description of what the evaluator believes the content is about
-* **Overall Quality Score**: X/10
-* **Primary Issues**: \[Brief list of major problems]
-* **Strengths**: \[Key positive aspects]
+* **Check redundancy**: Flag repeated words, phrases, sentences, or overlapping passages that do not add clarity or value.
+* **Check structure**: Flag sections or stanzas/paragraphs that could be merged without loss of meaning.
+* **Action**: Highlight redundant passages with `<!-- REDUNDANT: ... -->` and suggest removal or consolidation.
 
----
+### 3) Grammar & Orthography
 
-### 2. Redundancy
+* **Check agreement**: Subject–verb and pronoun–antecedent.
+* **Check tense**: Use consistent present tense for main text; past only in historical notes.
+* **Check parallelism**: Ensure list items share the same grammatical form.
+* **Check fragments & run-ons**: Correct comma splices and incomplete sentences.
+* **Check prepositions & articles**: Apply standard usage.
+* **Check spelling**: Use one dictionary variant (e.g., American or British).
+* **Check capitalization**: Use Title Case for headings if required; capitalize proper nouns.
+* **Check punctuation**: Apply consistent comma use; ensure spaces around punctuation.
+* **Check numbers**: Follow numerals vs words policy (e.g., one–nine as words).
+* **Check hyphenation**: Hyphenate compound adjectives per style.
+* **Action**: Annotate or auto-correct if unambiguous.
 
-* Identify overlapping, duplicated, or contradictory sections or logic
-* Highlight repeated rationale, phrasing, or structure
+### 4) Clarity & Ambiguity
 
-### 3. Grammar & Orthography
+* **Check ambiguity**: Remove vague terms ("some", "often", "generally") unless quantified.
+* **Check sentence length**: Prefer ≤ 25 words; split long instructions.
+* **Check pronoun references**: Replace unclear "it/this/that" with explicit subjects.
+* **Check hedging & double negatives**: Replace with direct statements.
+* **Check acronyms & jargon**: Define on first use; link to glossary.
+* **Check order**: Put directives before rationale when possible.
+* **Check examples**: Ensure each example ties explicitly back to the rule.
+* **Action**: Insert `<!-- UNCLEAR: propose › ... -->` with a concrete rewrite.
 
-* Detect grammar and spelling issues (English or German)
-* Flag inconsistent punctuation or capitalization
+### 5) Consistency & Tone
 
-### 4. Clarity & Ambiguity
+* **Check terminology**: Ensure terms and concepts are consistent across the document.
+* **Check tone**: Ensure the overall style and register remain steady (e.g., formal vs informal, neutral vs persuasive).
+* **Check formatting**: Ensure headings, lists, and other structural elements follow a uniform style.
+* **Check logical flow**: Confirm statements do not contradict each other and maintain coherence.
+* **Action**: Mark inconsistent usage or tone shifts with `<!-- INCONSISTENT: ... -->` and suggest a correction.
 
-* Detect vague, ambiguous, or overly complex wording
-* Flag unclear references, especially in multilingual or technical phrasing
+### 6) Cross-language Clarity
 
-### 5. Consistency & Tone
+* **Check terminology mapping**: Flag if important terms appear in multiple languages and may require clarification.
+* **Check false friends**: Note potential misunderstandings when similar words have different meanings across languages.
+* **Check idioms**: Flag idiomatic expressions that may not translate directly.
+* **Add informational notes**: When dates or times appear, add a note with the equivalent in German time (informational only).
+* **Action**: Insert `<!-- CROSS-LANG: clarify ... -->` for unclear multilingual passages.
 
-* Identify tone inconsistencies (formal/informal/conflicting intent)
-* Check structure and formatting alignment (e.g., indentation, punctuation)
-* Highlight contradictions between rules or logic blocks
+### 7) Token Efficiency
 
-### 6. Cross-language Clarity
+* **Check conciseness**: Flag unnecessary words or verbose passages.
+* **Check focus**: Ensure the content stays on topic and does not drift.
+* **Check density**: Ensure a high ratio of meaningful information to filler.
+* **Check clarity vs brevity**: Flag if brevity harms understanding.
+* **Action**: Highlight inefficient passages with `<!-- TOKEN-EFFICIENCY: ... -->` and suggest a concise form.
 
-* Flag hybrid phrases that combine English and German improperly
-* Ensure clarity regardless of language context or phrasing mix
+### 8) UTF Character Analysis
 
-### 7. Token Efficiency
+* **Check invisible characters**: Identify ZWSP, NBSP, BOM.
+* **Check normalization**: Verify consistent Unicode normalization form (e.g., NFC).
+* **Check homoglyphs**: Identify look-alike characters (O/0, l/1, –/—/-).
+* **Check punctuation**: Ensure consistent use of quotes and dashes.
+* **Check non-ASCII characters**: Identify any non-ASCII characters (e.g., invisible marks, homoglyphs, or AI-watermarks) and note whether harmless or risky.
+* **Check AI watermark artifacts**: Flag AI watermark artifacts.
+* **Action**: Report exact code points and positions; propose safe replacements.
 
-* Detect unnecessarily verbose or overly qualified language
-* Highlight opportunities for cleaner, more efficient expression
+## ⌨️ Input
 
-### 8. UTF Character Analysis
+* **Command**: `Evaluate`
+* **Modes / Flags**:
 
-* List unusual characters (e.g. —, “, ”, …) used in the content
-* Highlight those likely from auto-formatting or copy-paste artifacts
+  * `append <url>` → Fetch content from URL and add to evaluation target.
+  * `diff` → Compare two versions and highlight changes with evaluation comments.
+  * `summary` → Produce only a high-level evaluation report.
+* **Target**:
 
----
+  * Inline text or document, or
+  * External content via URL.
 
-## 📄 Output Format
+## ⚙️ Behavior
 
-Return a markdown report with these sections:
+1. Parse the `Evaluate` command.
+2. Collect input (inline or via URL if `append`).
+3. Apply all dimensions systematically.
+4. Insert inline comments `<!-- REVIEW: ... -->` for detected issues.
+5. Preserve formatting of unaffected parts.
+6. Add a `## Evaluation Report` section with structured findings per dimension.
+7. Confirm understanding with a short subject description.
 
-### ✅ Passed Checks
+## 📤 Output
 
-* Sections fully meeting expectations
-
-### ⚠️ Partial or Problematic Checks
-
-* Grouped by evaluation category (e.g. Redundancy, Clarity, etc.)
-* For each issue: quote or describe the content, explain the problem, and suggest a concise fix
-
-### ❌ Critical Issues
-
-* Blocking issues (e.g., structural contradiction, severe formatting errors)
-
----
+* Annotated content highlighting issues.
+* `## Evaluation Report` summarizing findings across all dimensions.
+* Confirmation of understanding with a short subject description.
+* Optional summary mode with condensed notes only.
 
 ## 🛑 Action Scope
 
-* Do **not** rewrite or correct the document
-* Do **not** merge, modify, or restructure content unless explicitly instructed
-* Focus on **issue identification only** — reporting, not fixing
-
----
+* Do not rewrite or correct the document.
+* Do not merge, modify, or restructure content unless explicitly instructed.
+* Focus on issue identification only — reporting, not fixing.
+* Do not use memory, prior chat context, or external assumptions during evaluation.
+* Only reference the given input text. The sole exception is in the **Executive Summary**, where an interpretation of the document’s content is required.
 
 ## 🔁 Usage
 
-Use this prompt to evaluate prompt templates, instructional text, YAML specs, or general technical writing.
-
-This version is AI-executable and intended to be embedded in alias workflows (e.g., `@evaluate-text`).
+* Use this prompt to evaluate prompt templates, instructional text, YAML specs, or general technical writing.
+* This version is AI-executable and intended to be embedded in alias workflows (e.g., @evaluate-text).
