@@ -1,0 +1,23 @@
+# Java Testing Policies
+# Keep rules token friendly, concise but precise and use RFC-2119 keywords.
+
+policies:
+  JAVA-TEST-001:
+    title: "Test Method Naming"
+    rule: "Test method names **SHOULD** clearly describe what is being tested using descriptive naming patterns."
+    
+  JAVA-TEST-002:
+    title: "Test Coverage Requirements"
+    rule: "Unit tests **SHOULD** achieve at least 80% code coverage for business logic."
+    
+  JAVA-TEST-003:
+    title: "Test Independence"
+    rule: "Tests **MUST** be independent and **MUST NOT** rely on execution order."
+    
+  JAVA-TEST-004:
+    title: "Assertion Usage"
+    rule: "Tests **MUST** include meaningful assertions and **SHOULD** use descriptive assertion messages."
+    
+  JAVA-TEST-005:
+    title: "Test Data Management"
+    rule: "Test data **SHOULD** be isolated per test and **MUST** be cleaned up after test execution."

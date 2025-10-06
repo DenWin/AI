@@ -1,0 +1,8 @@
+# Java Policies Index
+# This file provides an index of all Java policy files for AI systems like ChatGPT
+# Format: last_updated;URL
+
+2024-01-15;https://raw.githubusercontent.com/DenWin/AI/main/policies/languages/java/java-style.yml
+2024-01-15;https://raw.githubusercontent.com/DenWin/AI/main/policies/languages/java/java-security.yml
+2024-01-15;https://raw.githubusercontent.com/DenWin/AI/main/policies/languages/java/java-testing.yml
+2024-01-15;https://raw.githubusercontent.com/DenWin/AI/main/policies/languages/java/java-performance.yml

@@ -1,0 +1,23 @@
+# Base Common Policies
+# Keep rules token friendly, concise but precise and use RFC-2119 keywords.
+
+policies:
+  BASE-001:
+    title: "Code Documentation"
+    rule: "Public APIs **MUST** be documented and **SHOULD** include usage examples."
+    
+  BASE-002:
+    title: "Error Handling"
+    rule: "Errors **MUST** be handled gracefully and **SHOULD** provide meaningful feedback."
+    
+  BASE-003:
+    title: "Logging Standards"
+    rule: "Applications **MUST** implement structured logging and **SHOULD** use appropriate log levels."
+    
+  BASE-004:
+    title: "Version Control"
+    rule: "Commit messages **MUST** be descriptive and **SHOULD** follow conventional commit format."
+    
+  BASE-005:
+    title: "Configuration Management"
+    rule: "Configuration **MUST** be externalized and **SHOULD** support multiple environments."

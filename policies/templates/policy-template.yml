@@ -1,0 +1,15 @@
+# [Category] Policies Template
+# Keep rules token friendly, concise but precise and use RFC-2119 keywords - in bold.
+
+policies:
+  [PREFIX]-001:
+    title: "[Descriptive Rule Title]"
+    rule:  "[Rule statement using **MUST**, **SHOULD**, **MUST NOT**, **SHOULD NOT** keywords]"
+    
+  [PREFIX]-002:
+    title: "[Another Rule Title]"
+    rule:  "[Another rule statement with RFC-2119 keywords]"
+    
+  [PREFIX]-003:
+    title: "[Third Rule Title]"
+    rule:  "[Third rule statement with appropriate RFC-2119 keywords]"

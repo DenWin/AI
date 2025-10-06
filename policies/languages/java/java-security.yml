@@ -1,0 +1,23 @@
+# Java Security Policies
+# Keep rules token friendly, concise but precise and use RFC-2119 keywords.
+
+policies:
+  JAVA-SEC-001:
+    title: "Input Validation"
+    rule: "All user inputs **MUST** be validated and sanitized before processing."
+    
+  JAVA-SEC-002:
+    title: "SQL Injection Prevention"
+    rule: "Database queries **MUST** use parameterized statements or prepared statements."
+    
+  JAVA-SEC-003:
+    title: "Sensitive Data Handling"
+    rule: "Sensitive data **MUST NOT** be logged and **SHOULD** be encrypted when stored."
+    
+  JAVA-SEC-004:
+    title: "Exception Information Disclosure"
+    rule: "Exception messages **MUST NOT** expose sensitive system information to end users."
+    
+  JAVA-SEC-005:
+    title: "Cryptographic Standards"
+    rule: "Cryptographic operations **MUST** use industry-standard algorithms and **SHOULD** use current best practices."

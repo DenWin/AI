@@ -1,0 +1,4 @@
+aliases:
+  apply-policy: prompts/apply-policy.md
+  use-policy: prompts/apply-policy.md
+  evaluate: prompts/evaluate.md
